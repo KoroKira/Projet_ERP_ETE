@@ -10,6 +10,11 @@ if (!isset($_SESSION['utilisateur'])) {
     exit();
 }
 
+$dsn = "pgsql:host=localhost;dbname=bddcrmete;options='--client_encoding=UTF8'";
+$user = "postgre";
+$password = "root";
+
+
 ?>
 
 <!DOCTYPE html>
@@ -256,28 +261,24 @@ document.getElementById('AjoutTexte').addEventListener('submit', function(e) {
 
 $user_id = isset($_SESSION['utilisateur']) ? $_SESSION['utilisateur'] : null;
 
-$dsn = "pgsql:host=localhost;dbname=bddcrmete;options='--client_encoding=UTF8'";
-$user = "postgre";
-$password = "root";
-
 
 // Établir la connexion à la base de données
-$conn = mysqli_connect($host, $user, $password, $database);
+$conn = pg_connect($dsn, $user, $password);
 
 // Vérifier la connexion
 if (!$conn) {
-    die("Erreur de connexion à la base de données : " . mysqli_connect_error());
+    die("Erreur de connexion à la base de données : " . pg_last_error());
 }
 
 $query = "SELECT * FROM user_data WHERE user_id = '$user_id'";
-$result = mysqli_query($conn, $query);
+$result = pg_query($conn, $query);
 
-if (mysqli_num_rows($result) > 0) {
+if (pg_num_rows($result) > 0) {
     echo "<div class=\"table-container\">";
     echo "<table>";
     echo "<tr><th>Date et heure</th><th>Texte</th></tr>";
 
-    while ($row = mysqli_fetch_assoc($result)) {
+    while ($row = pg_fetch_assoc($result)) {
         $dateHeure = $row['date_time'];
         $texte = $row['text_content'];
 
@@ -290,7 +291,7 @@ if (mysqli_num_rows($result) > 0) {
     echo "Aucune donnée disponible.";
 }
 
-mysqli_close($conn);
+pg_close($conn);
 ?>
 
 <p class="small-text">
