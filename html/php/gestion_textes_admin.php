@@ -23,12 +23,11 @@ $dsn = "pgsql:host=localhost;dbname=bddcrmete;options='--client_encoding=UTF8'";
 $user = "postgres";
 $password = "root";
 
-// Établir la connexion à la base de données
-$conn = mysqli_connect($dsn, $user, $password);
-
-// Vérifier la connexion
-if (!$conn) {
-    die("Erreur de connexion à la base de données : " . mysqli_connect_error());
+try {
+  $pdo = new PDO($dsn);
+  $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+} catch (PDOException $e) {
+  die("Erreur de connexion à la base de données : " . $e->getMessage());
 }
 
 // Define the upload directory path
@@ -487,17 +486,18 @@ table thead th {
 
 
 <?php
-$query = "SELECT * FROM user_data WHERE 1=1";
 
-$result = mysqli_query($conn, $query);
+$query = "SELECT * FROM user_data WHERE true";
 
-if (mysqli_num_rows($result) > 0) {
+$result = pg_query($conn, $query);
+
+if (pg_num_rows($result) > 0) {
     echo "<div class=\"table-container\">";
     echo "<table id=\"infoTable\">";
     echo "<thead><tr><th data-column=\"1\" data-order=\"\">Date et heure</th><th data-column=\"2\" data-order=\"\">Texte</th><th data-column=\"3\" data-order=\"\">Utilisateur</th></tr></thead>";
     echo "<tbody>";
 
-    while ($row = mysqli_fetch_assoc($result)) {
+    while ($row = pg_fetch_assoc($result)) {
         $dateHeure = $row['date_time'];
         $texte = $row['text_content'];
         $userID = $row['user_id'];
@@ -520,23 +520,24 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $texte = $_POST['text'];
 
         // Utiliser une requête préparée pour sécuriser les données
-        $insertQuery = "INSERT INTO user_data (date_time, text_content, user_id, file_name) VALUES (?, ?, ?, '0')";
-        $stmt = mysqli_prepare($conn, $insertQuery);
-        mysqli_stmt_bind_param($stmt, "ssi", $dateHeure, $texte, $_SESSION['utilisateur']);
+        $insertQuery = "INSERT INTO user_data (date_time, text_content, user_id, file_name) VALUES ($1, $2, $3, '0')";
+        $stmt = pg_prepare($conn, "insert_query", $insertQuery);
+        $result = pg_execute($conn, "insert_query", array($dateHeure, $texte, $_SESSION['utilisateur']));
 
         // Exécuter la requête d'insertion
-        if (mysqli_stmt_execute($stmt)) {
+        if ($result) {
             echo "<script>alert('Les informations ont été insérées avec succès.');</script>";
             echo "<script>window.location.reload();</script>";
         } else {
-            echo "Erreur lors de l'insertion des informations : " . mysqli_error($conn);
+            echo "Erreur lors de l'insertion des informations : " . pg_last_error($conn);
         }
     } else {
         echo "Veuillez remplir tous les champs du formulaire.";
     }
 }
 
-mysqli_close($conn);
+pg_close($conn);
+
 ?>
 
 
