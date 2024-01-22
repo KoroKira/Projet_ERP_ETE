@@ -25,7 +25,7 @@ try {
   }
 
   // Prepare the INSERT statement
-  $query = "INSERT INTO NotreTable (SOCIETE, PAYS, CONTRAT, DOMAINEACTIVITE) VALUES (:SOCIETE, :PAYS, :CONTRAT, :DOMAINEACTIVITE)";
+  $query = "INSERT INTO notretable (SOCIETE, PAYS, CONTRAT, DOMAINEACTIVITE) VALUES (:SOCIETE, :PAYS, :CONTRAT, :DOMAINEACTIVITE)";
   $stmt = $pdo->prepare($query);
 
   // Bind the values to the placeholders

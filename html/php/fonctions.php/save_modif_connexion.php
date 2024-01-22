@@ -19,12 +19,12 @@ try {
 
         // If the value is empty, delete the row instead of updating it
         if ($value === '') {
-            $query = "DELETE FROM Connexion WHERE id = :id";
+            $query = "DELETE FROM connexion WHERE id = :id";
             $stmt = $pdo->prepare($query);
             $stmt->bindParam(':id', $id);
             $stmt->execute();
         } else {
-            $query = "UPDATE Connexion SET $column = :value WHERE id = :id";
+            $query = "UPDATE connexion SET $column = :value WHERE id = :id";
             $stmt = $pdo->prepare($query);
             $stmt->bindParam(':value', $value);
             $stmt->bindParam(':id', $id);

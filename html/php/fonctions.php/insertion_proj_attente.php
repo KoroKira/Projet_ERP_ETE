@@ -29,7 +29,7 @@ try {
   }
 
   // Prepare the INSERT statement for TaTable
-  $query = "INSERT INTO TaTable (pays, CLIENT, label, detail, intermediary, DateOffre, montantHT) VALUES (:pays, :CLIENT, :label, :detail, :intermediary, :DateOffre, :montantHT)";
+  $query = "INSERT INTO tatable (pays, CLIENT, label, detail, intermediary, DateOffre, montantHT) VALUES (:pays, :CLIENT, :label, :detail, :intermediary, :DateOffre, :montantHT)";
   $stmt = $pdo->prepare($query);
 
   // Bind the values to the placeholders

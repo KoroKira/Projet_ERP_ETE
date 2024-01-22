@@ -40,7 +40,7 @@ try {
   }
 
   // Prepare the INSERT statement
-  $query = "INSERT INTO MaTable (year, country, status, statusDate, number, client, contact, projectName, referrer, partner1, partner2, partner3, partner4, duration, amount, probability, orderDate, potentialRevenue, additionalInfo) VALUES (:year, :country, :status, :statusDate, :number, :client, :contact, :projectName, :referrer, :partner1, :partner2, :partner3, :partner4, :duration, :amount, :probability, :orderDate, :potentialRevenue, :additionalInfo)";
+  $query = "INSERT INTO matable (year, country, status, statusDate, number, client, contact, projectName, referrer, partner1, partner2, partner3, partner4, duration, amount, probability, orderDate, potentialRevenue, additionalInfo) VALUES (:year, :country, :status, :statusDate, :number, :client, :contact, :projectName, :referrer, :partner1, :partner2, :partner3, :partner4, :duration, :amount, :probability, :orderDate, :potentialRevenue, :additionalInfo)";
   $stmt = $pdo->prepare($query);
 
   // Bind the values to the placeholders

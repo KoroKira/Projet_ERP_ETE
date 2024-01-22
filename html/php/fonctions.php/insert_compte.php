@@ -12,23 +12,23 @@ try {
   $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
   // Retrieve the data from the AJAX request
-  $Utilisateur = $_POST['Utilisateur'];
-  $MotDePasse = $_POST['MotDePasse'];
-  $Acces = $_POST['Acces'];
+  $utilisateur = $_POST['utilisateur'];
+  $motdepasse = $_POST['motdepasse'];
+  $acces = $_POST['acces'];
 
   // Validate the 'NomPrenom' field
-  if (empty($Utilisateur)) {
+  if (empty($utilisateur)) {
     throw new Exception("Le champ Utilisateur ne peut pas être vide");
   }
 
   // Prepare the INSERT statement
-  $query = "INSERT INTO Connexion (Utilisateur, MotDePasse, Acces) VALUES (:Utilisateur, :MotDePasse, :Acces)";
+  $query = "INSERT INTO connexion (utilisateur, motdepasse, acces) VALUES (:utilisateur, :motdepasse, :acces)";
   $stmt = $pdo->prepare($query);
 
   // Bind the values to the placeholders
-  $stmt->bindParam(':Utilisateur', $Utilisateur);
-  $stmt->bindParam(':MotDePasse', $MotDePasse);
-  $stmt->bindParam(':Acces', $Acces);
+  $stmt->bindParam(':utilisateur', $utilisateur);
+  $stmt->bindParam(':motdepasse', $motdepasse);
+  $stmt->bindParam(':acces', $acces);
 
   // Execute the INSERT statement
   $stmt->execute();

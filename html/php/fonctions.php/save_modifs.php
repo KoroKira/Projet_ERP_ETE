@@ -19,12 +19,12 @@ try {
 
         // If the value is empty, delete the row instead of updating it
         if ($value === '') {
-            $query = "DELETE FROM TaTable WHERE id = :id";
+            $query = "DELETE FROM tatable WHERE id = :id";
             $stmt = $pdo->prepare($query);
             $stmt->bindParam(':id', $id);
             $stmt->execute();
         } else {
-            $query = "UPDATE TaTable SET $column = :value WHERE id = :id";
+            $query = "UPDATE tatable SET $column = :value WHERE id = :id";
             $stmt = $pdo->prepare($query);
             $stmt->bindParam(':value', $value);
             $stmt->bindParam(':id', $id);

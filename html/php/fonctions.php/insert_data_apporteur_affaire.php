@@ -24,7 +24,7 @@ try {
   }
 
   // Prepare the INSERT statement
-  $query = "INSERT INTO SaTable (NomPrenom, Societe, Pays, Contrat, DomaineActivite) VALUES (:NomPrenom, :Societe, :Pays, :Contrat, :DomaineActivite)";
+  $query = "INSERT INTO satable (NomPrenom, Societe, Pays, Contrat, DomaineActivite) VALUES (:NomPrenom, :Societe, :Pays, :Contrat, :DomaineActivite)";
   $stmt = $pdo->prepare($query);
 
   // Bind the values to the placeholders

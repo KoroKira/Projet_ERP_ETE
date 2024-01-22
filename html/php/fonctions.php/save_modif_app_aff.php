@@ -19,12 +19,12 @@ try {
 
         // If the value is empty, delete the row instead of updating it
         if ($value === '') {
-            $query = "DELETE FROM SaTable WHERE id = :id";
+            $query = "DELETE FROM satable WHERE id = :id";
             $stmt = $pdo->prepare($query);
             $stmt->bindParam(':id', $id);
             $stmt->execute();
         } else {
-            $query = "UPDATE SaTable SET $column = :value WHERE id = :id";
+            $query = "UPDATE satable SET $column = :value WHERE id = :id";
             $stmt = $pdo->prepare($query);
             $stmt->bindParam(':value', $value);
             $stmt->bindParam(':id', $id);
