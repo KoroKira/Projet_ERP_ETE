@@ -1,0 +1,79 @@
+/* Style général */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 20px;
+  }
+  
+  h1 {
+    text-align: center;
+  }
+  
+  /* Style du tableau des commandes */
+  #orderTable {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+  }
+  
+  #orderTable th,
+  #orderTable td {
+    padding: 10px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+  }
+  
+  #orderTable th {
+    background-color: #f9f9f9;
+    font-weight: bold;
+  }
+  
+  #orderTable tbody tr:hover {
+    background-color: #f5f5f5;
+  }
+  
+  #orderForm {
+    max-width: 500px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  }
+  
+  #orderForm h2 {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  
+  #orderForm form {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  #orderForm label {
+    font-weight: bold;
+    margin-bottom: 5px;
+  }
+  
+  #orderForm input[type="text"],
+  #orderForm select,
+  #orderForm input[type="number"] {
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+  }
+  
+  #orderForm button[type="submit"] {
+    padding: 10px 20px;
+    background-color: #4CAF50;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  #orderForm button[type="submit"]:hover {
+    background-color: #45a049;
+  }
