@@ -25,7 +25,7 @@ try {
         // Vérifier si les données sont vides
         if (!empty($intermediary) && !empty($text)) {
             // Insérer les données dans la table LesIntermediaires
-            $insertQuery = "INSERT INTO LesIntermediaires (intermediary, text) VALUES (:intermediary, :text)";
+            $insertQuery = "INSERT INTO lesintermediaires (intermediary, text) VALUES (:intermediary, :text)";
             $insertStmt = $pdo->prepare($insertQuery);
             $insertStmt->bindParam(':intermediary', $intermediary);
             $insertStmt->bindParam(':text', $text);
@@ -36,7 +36,7 @@ try {
     }
 
     // Récupérer les données des intermédiaires déjà présents
-    $query = "SELECT * FROM LesIntermediaires";
+    $query = "SELECT * FROM lesintermediaires";
     $stmt = $pdo->query($query);
     $intermediaires = $stmt->fetchAll(PDO::FETCH_ASSOC);
 } catch (PDOException $e) {
@@ -204,7 +204,7 @@ try {
                 $column = $_POST['column'];
                 $value = $_POST['value'];
 
-                $query = "UPDATE LesIntermediaires SET $column = :value WHERE id = :id";
+                $query = "UPDATE lesintermediaires SET $column = :value WHERE id = :id";
                 $stmt = $pdo->prepare($query);
                 $stmt->bindParam(':value', $value);
                 $stmt->bindParam(':id', $id);
@@ -214,7 +214,7 @@ try {
             }
         }
 
-        $query = "SELECT * FROM LesIntermediaires";
+        $query = "SELECT * FROM lesintermediaires";
         $stmt = $pdo->prepare($query);
         $stmt->execute();
         $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
