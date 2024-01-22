@@ -24,7 +24,7 @@ $user = "postgres";
 $password = "root";
 
 // Établir la connexion à la base de données
-$conn = mysqli_connect($host, $user, $password, $database);
+$conn = mysqli_connect($dsn, $user, $password);
 
 // Vérifier la connexion
 if (!$conn) {
