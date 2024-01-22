@@ -202,7 +202,7 @@ if (!isset($_SESSION['utilisateur'])) {
             background-color: #c1272d; /* Change background color on hover */
             color: #ffffff; /* Change text color on hover */
     }
-
+    
         /* Styles pour les conteneurs des tableaux */
     .table-container {
       max-height: 300px; /* Limite de 10 lignes visuellement */
@@ -221,8 +221,6 @@ if (!isset($_SESSION['utilisateur'])) {
 <head>
     <meta charset="UTF-8">
     <title>Modifier les données</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"> <!-- Add Font Awesome CSS -->
-
 
 
     <div id="myModal" class="modal">
@@ -248,8 +246,9 @@ if (!isset($_SESSION['utilisateur'])) {
 </head>
 <body>
     <?php
-
-
+			$dsn = "pgsql:host=localhost;dbname=bddcrmete;options='--client_encoding=UTF8'";
+			$user = "postgres";
+			$password = "root";
 
         try {
             $pdo = new PDO($dsn, $user, $password);
@@ -267,23 +266,7 @@ if (!isset($_SESSION['utilisateur'])) {
                 $stmt->execute();
 
                 echo "Données mises à jour avec succès!";
-            } elseif (isset($_POST['delete'])) {
-                $id = $_POST['id'];
-                $accesRequis = $_POST['acces']; // Récupérer l'accréditation requise depuis la requête
-
-                // Effectuer la vérification de l'accréditation
-                if ($_SESSION['Acces'] !== $accesRequis) {
-                    echo "Erreur : Vous n'avez pas les autorisations requises pour supprimer les données.";
-                    exit();
-                }
-
-                $query = "DELETE FROM MaTable WHERE id = :id";
-                $stmt = $pdo->prepare($query);
-                $stmt->bindParam(':id', $id);
-                $stmt->execute();
-
-                echo "Données supprimées avec succès!";
-            }
+            } 
 
             $query = "SELECT * FROM MaTable";
             $stmt = $pdo->prepare($query);
@@ -317,7 +300,6 @@ if (!isset($_SESSION['utilisateur'])) {
                 <th>Date de commande</th>
                 <th>CA potentiel</th>
                 <th>Informations complémentaires</th>
-                <th>Actions</th>
             </tr>
         </thead>
         <tbody>
@@ -343,13 +325,6 @@ if (!isset($_SESSION['utilisateur'])) {
                     <td class="editable" data-id="<?php echo $row['id']; ?>" data-column="orderDate"><?php echo $row['orderDate']; ?></td>
                     <td class="editable" data-id="<?php echo $row['id']; ?>" data-column="potentialRevenue"><?php echo $row['potentialRevenue']; ?></td>
                     <td class="editable" data-id="<?php echo $row['id']; ?>" data-column="additionalInfo"><?php echo $row['additionalInfo']; ?></td>
-                    <td>
-                        <?php if ($_SESSION['Acces'] !== "Lambda") { ?>
-                            <button class="delete-button" onclick="deleteRow('<?php echo $row['id']; ?>', '<?php echo $row['accreditation']; ?>')">
-                                <i class="fas fa-trash-alt"></i> <!-- Add trash bin icon -->
-                            </button>
-                        <?php } ?>
-                    </td>
                 </tr>
             <?php } ?>
         </tbody>
@@ -375,7 +350,7 @@ if (!isset($_SESSION['utilisateur'])) {
                     formData.append('value', value);
                     formData.append('submit', 'true'); // Ajouter le flag de soumission
 
-                    fetch('modif_admin.php', {
+                    fetch('modif.php', {
                         method: 'POST',
                         body: formData
                     })
@@ -417,38 +392,6 @@ if (!isset($_SESSION['utilisateur'])) {
                 .catch(error => console.log(error));
         }
 
-        function deleteRow(id, accreditation) {
-            const Acces = "<?php echo $_SESSION['Acces']; ?>";
-
-            if (Acces === "Lambda") {
-                showModal("Vous n'avez pas les droits suffisants pour supprimer une ligne. Veuillez contacter un administrateur.");
-            } else if (Acces === accreditation) { // Vérifier si l'accréditation de l'utilisateur correspond
-                const confirmation = confirm("Êtes-vous sûr de supprimer cette ligne ? Toute donnée supprimée est définitivement perdue.");
-
-                if (confirmation) {
-                    const formData = new FormData();
-                    formData.append('id', id);
-                    formData.append('delete', 'true'); // Add the delete flag
-
-                    fetch('fonctions.php/save_modifications.php', {
-                        method: 'POST',
-                        headers: {
-                            'Content-Type': 'application/json'
-                        },
-                        body: JSON.stringify([{ id, column: '', value: '' }]) // Use an empty value for the column to indicate deletion
-                    })
-                        .then(response => response.text())
-                        .then(result => {
-                            console.log(result);
-                            alert('Ligne retirée avec succès !');
-                            location.reload(); // Refresh the page to reflect the changes
-                        })
-                        .catch(error => console.log(error));
-                }
-            } else {
-                showModal("Vous n'avez pas les autorisations requises pour supprimer cette ligne.");
-            }
-        }
 
         function showModal(message) {
             const modal = document.getElementById("myModal");
@@ -479,9 +422,9 @@ if (!isset($_SESSION['utilisateur'])) {
 
 
     <?php
-    $dsn = "mysql:host=localhost;dbname=bddcrmete;charset=utf8mb4";
-    $user = "Boss";
-    $password = "D34thR0ck";
+    $dsn = "pgsql:host=localhost;dbname=bddcrmete;options='--client_encoding=UTF8'";
+	$user = "postgres";
+	$password = "root";
 
     try {
         $pdo = new PDO($dsn, $user, $password);
@@ -500,15 +443,6 @@ if (!isset($_SESSION['utilisateur'])) {
                 $stmt->execute();
 
                 echo "Données mises à jour avec succès!";
-            } elseif (isset($_POST['delete'])) {
-                $id = $_POST['id'];
-
-                $query = "DELETE FROM TaTable WHERE id = :id";
-                $stmt = $pdo->prepare($query);
-                $stmt->bindParam(':id', $id);
-                $stmt->execute();
-
-                echo "Données supprimées avec succès!";
             }
         }
 
@@ -532,7 +466,6 @@ if (!isset($_SESSION['utilisateur'])) {
                 <th>Intermédiaire</th>
                 <th>Date Offre</th>
                 <th>Montant HT</th>
-                <th>Actions</th>
             </tr>
         </thead>
         <tbody>
@@ -546,13 +479,6 @@ if (!isset($_SESSION['utilisateur'])) {
                     <td class="editable" data-id="<?php echo $row['id']; ?>" data-column="intermediary"><?php echo $row['intermediary']; ?></td>
                     <td class="editable" data-id="<?php echo $row['id']; ?>" data-column="DateOffre"><?php echo $row['DateOffre']; ?></td>
                     <td class="editable" data-id="<?php echo $row['id']; ?>" data-column="montantHT"><?php echo $row['montantHT']; ?></td>
-                    <td>
-                        <?php if ($_SESSION['Acces'] !== "Lambda") { ?>
-                            <button class="delete-button" onclick="deleteRow('<?php echo $row['id']; ?>')">
-                                <i class="fas fa-trash-alt"></i> <!-- Add trash bin icon -->
-                            </button>
-                        <?php } ?>
-                    </td>
                 </tr>
             <?php } ?>
         </tbody>
@@ -578,7 +504,7 @@ if (!isset($_SESSION['utilisateur'])) {
                     formData.append('value', value);
                     formData.append('submit', 'true'); // Add the submit flag
 
-                    fetch('modif_admin.php', {
+                    fetch('modif.php', {
                         method: 'POST',
                         body: formData
                     })
@@ -620,30 +546,6 @@ if (!isset($_SESSION['utilisateur'])) {
                 .catch(error => console.log(error));
         }
 
-        function deleteRow(id) {
-            const confirmation = confirm("Êtes-vous sûr de supprimer cette ligne ? Toute donnée supprimée est définitivement perdue.");
-
-            if (confirmation) {
-                const formData = new FormData();
-                formData.append('id', id);
-                formData.append('delete', 'true'); // Add the delete flag
-
-                fetch('fonctions.php/save_modifications.php', {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json'
-                    },
-                    body: JSON.stringify([{ id, column: '', value: '' }]) // Use an empty value for the column to indicate deletion
-                })
-                    .then(response => response.text())
-                    .then(result => {
-                        console.log(result);
-                        alert('Ligne retirée avec succès !');
-                        location.reload(); // Refresh the page to reflect the changes
-                    })
-                    .catch(error => console.log(error));
-            }
-        }
     </script>
 
 
@@ -659,9 +561,9 @@ if (!isset($_SESSION['utilisateur'])) {
     ?>
 
     <?php
-    $dsn = "mysql:host=localhost;dbname=bddcrmete;charset=utf8mb4";
-    $user = "Boss";
-    $password = "D34thR0ck";
+		$dsn = "pgsql:host=localhost;dbname=bddcrmete;options='--client_encoding=UTF8'";
+		$user = "postgres";
+		$password = "root";
 
     try {
         $pdo = new PDO($dsn, $user, $password);
@@ -680,15 +582,6 @@ if (!isset($_SESSION['utilisateur'])) {
                 $stmt->execute();
 
                 echo "Données mises à jour avec succès!";
-            } elseif (isset($_POST['delete'])) {
-                $id = $_POST['id'];
-
-                $query = "DELETE FROM SaTable WHERE id = :id";
-                $stmt = $pdo->prepare($query);
-                $stmt->bindParam(':id', $id);
-                $stmt->execute();
-
-                echo "Données supprimées avec succès!";
             }
         }
 
@@ -710,7 +603,6 @@ if (!isset($_SESSION['utilisateur'])) {
                 <th>Pays</th>
                 <th>Contrat</th>
                 <th>Domaine d'activité</th>
-                <th>Actions</th>
             </tr>
         </thead>
         <tbody>
@@ -722,18 +614,10 @@ if (!isset($_SESSION['utilisateur'])) {
                     <td class="editable" data-id="<?php echo $row['id']; ?>" data-column="Pays"><?php echo $row['Pays']; ?></td>
                     <td class="editable" data-id="<?php echo $row['id']; ?>" data-column="Contrat"><?php echo $row['Contrat']; ?></td>
                     <td class="editable" data-id="<?php echo $row['id']; ?>" data-column="DomaineActivite"><?php echo $row['DomaineActivite']; ?></td>
-                    <td>
-                        <?php if ($_SESSION['Acces'] !== "Lambda") { ?>
-                            <button class="delete-button" onclick="deleteRow('<?php echo $row['id']; ?>')">
-                                <i class="fas fa-trash-alt"></i> <!-- Add trash bin icon -->
-                            </button>
-                        <?php } ?>
-                    </td>
                 </tr>
             <?php } ?>
         </tbody>
     </table>
-
 </div>
 
     <button id="BoutonValidation2" onclick="ValidationModif2()">Valider les modifications</button>
@@ -754,7 +638,7 @@ if (!isset($_SESSION['utilisateur'])) {
                     formData.append('value', value);
                     formData.append('submit', 'true'); // Add the submit flag
 
-                    fetch('modif_admin.php', {
+                    fetch('modif.php', {
                         method: 'POST',
                         body: formData
                     })
@@ -796,30 +680,6 @@ if (!isset($_SESSION['utilisateur'])) {
                 .catch(error => console.log(error));
         }
 
-        function deleteRow(id) {
-            const confirmation = confirm("Êtes-vous sûr de supprimer cette ligne ? Toute donnée supprimée est définitivement perdue.");
-
-            if (confirmation) {
-                const formData = new FormData();
-                formData.append('id', id);
-                formData.append('delete', 'true'); // Add the delete flag
-
-                fetch('fonctions.php/save_modifications.php', {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json'
-                    },
-                    body: JSON.stringify([{ id, column: '', value: '' }]) // Use an empty value for the column to indicate deletion
-                })
-                    .then(response => response.text())
-                    .then(result => {
-                        console.log(result);
-                        alert('Ligne retirée avec succès !');
-                        location.reload(); // Refresh the page to reflect the changes
-                    })
-                    .catch(error => console.log(error));
-            }
-        }
     </script>
 
     <?php } catch (PDOException $e) {

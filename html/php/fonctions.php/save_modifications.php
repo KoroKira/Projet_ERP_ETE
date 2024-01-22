@@ -1,5 +1,7 @@
 <?php
-
+$dsn = "pgsql:host=localhost;dbname=bddcrmete;options='--client_encoding=UTF8'";
+$user = "postgres";
+$password = "root";
 
 
 try {
@@ -17,12 +19,12 @@ try {
 
         // If the value is empty, delete the row instead of updating it
         if ($value === '') {
-            $query = "DELETE FROM TaTable WHERE id = :id";
+            $query = "DELETE FROM MaTable WHERE id = :id";
             $stmt = $pdo->prepare($query);
             $stmt->bindParam(':id', $id);
             $stmt->execute();
         } else {
-            $query = "UPDATE TaTable SET $column = :value WHERE id = :id";
+            $query = "UPDATE MaTable SET $column = :value WHERE id = :id";
             $stmt = $pdo->prepare($query);
             $stmt->bindParam(':value', $value);
             $stmt->bindParam(':id', $id);

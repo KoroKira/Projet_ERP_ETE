@@ -7,7 +7,10 @@ if (!isset($_SESSION['utilisateur'])) {
     exit();
 }
 
-
+// Se connecter à la base de données
+$dsn = "pgsql:host=localhost;dbname=bddcrmete;options='--client_encoding=UTF8'";
+$user = "postgres";
+$password = "root";
 
 try {
     $pdo = new PDO($dsn, $user, $password);

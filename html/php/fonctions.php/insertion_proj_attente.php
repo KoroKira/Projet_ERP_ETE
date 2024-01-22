@@ -3,7 +3,9 @@
 error_reporting(E_ALL);
 ini_set('display_errors', 1);
 
-
+$dsn = "pgsql:host=localhost;dbname=bddcrmete;options='--client_encoding=UTF8'";
+$user = "postgres";
+$password = "root";
 
 
 $message = ""; // Initialize the message variable

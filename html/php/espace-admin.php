@@ -245,7 +245,9 @@ document.getElementById('valider').addEventListener('click', function() {
 
 
 <?php
-
+$dsn = "pgsql:host=localhost;dbname=bddcrmete;options='--client_encoding=UTF8'";
+$user = "postgres";
+$password = "root";
 
 try {
     $pdo = new PDO($dsn, $user, $password);

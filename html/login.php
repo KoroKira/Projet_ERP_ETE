@@ -103,11 +103,11 @@
 <body>
   <h1>Connexion</h1>
   <form id="Connexion">
-    <label for="Utilisateur">Utilisateur :</label>
-    <input type="text" id="Utilisateur" name="Utilisateur" required>
+    <label for="utilisateur">Utilisateur :</label>
+    <input type="text" id="utilisateur" name="utilisateur" required>
     <br>
-    <label for="MotDePasse">Mot de passe :</label>
-    <input type="password" id="MotDePasse" name="MotDePasse" required>
+    <label for="motdepasse">Mot de passe :</label>
+    <input type="password" id="motdepasse" name="motdepasse" required>
   </form>
 
 

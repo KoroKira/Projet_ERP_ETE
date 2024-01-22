@@ -352,8 +352,9 @@ if (!isset($_SESSION['utilisateur'])) {
       </thead>
       <tbody>
         <?php
-
-
+  			$dsn = "pgsql:host=localhost;dbname=bddcrmete;options='--client_encoding=UTF8'";
+			$user = "postgres";
+			$password = "root";
           try {
             $pdo = new PDO($dsn, $user, $password);
             $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
@@ -411,8 +412,9 @@ if (!isset($_SESSION['utilisateur'])) {
       </thead>
       <tbody>
         <?php
-
-
+			$dsn = "pgsql:host=localhost;dbname=bddcrmete;options='--client_encoding=UTF8'";
+			$user = "postgres";
+			$password = "root";
           try {
             $pdo = new PDO($dsn, $user, $password);
             $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
@@ -456,7 +458,9 @@ if (!isset($_SESSION['utilisateur'])) {
       </thead>
       <tbody>
         <?php
-
+			$dsn = "pgsql:host=localhost;dbname=bddcrmete;options='--client_encoding=UTF8'";
+			$user = "postgres";
+			$password = "root";
 
           try {
             $pdo = new PDO($dsn, $user, $password);
@@ -499,7 +503,9 @@ if (!isset($_SESSION['utilisateur'])) {
       </thead>
       <tbody>
         <?php
-
+			$dsn = "pgsql:host=localhost;dbname=bddcrmete;options='--client_encoding=UTF8'";
+			$user = "postgres";
+			$password = "root";
 
           try {
             $pdo = new PDO($dsn, $user, $password);

@@ -256,6 +256,9 @@ document.getElementById('AjoutTexte').addEventListener('submit', function(e) {
 
 $user_id = isset($_SESSION['utilisateur']) ? $_SESSION['utilisateur'] : null;
 
+$dsn = "pgsql:host=localhost;dbname=bddcrmete;options='--client_encoding=UTF8'";
+$user = "postgre";
+$password = "root";
 
 
 // Établir la connexion à la base de données

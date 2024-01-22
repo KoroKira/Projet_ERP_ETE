@@ -6,7 +6,9 @@ session_start(); // Démarrer la session
 
 $user_id = isset($_SESSION['utilisateur']) ? $_SESSION['utilisateur'] : null;
 
-
+$dsn = "pgsql:host=localhost;dbname=bddcrmete;options='--client_encoding=UTF8'";
+$user = "postgres";
+$password = "root";
 
 try {
     $pdo = new PDO($dsn, $user, $password);

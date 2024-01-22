@@ -2,7 +2,9 @@
 error_reporting(E_ALL);
 ini_set('display_errors', 1);
 
-
+$dsn = "pgsql:host=localhost;dbname=bddcrmete;options='--client_encoding=UTF8'";
+$user = "postgres";
+$password = "root";
 
 
 try {
@@ -10,27 +12,23 @@ try {
   $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
   // Retrieve the data from the AJAX request
-  $NomPrenom = $_POST['NomPrenom'];
-  $Societe = $_POST['Societe'];
-  $Pays = $_POST['Pays'];
-  $Contrat = $_POST['Contrat'];
-  $DomaineActivite = $_POST['DomaineActivite'];
+  $Utilisateur = $_POST['Utilisateur'];
+  $MotDePasse = $_POST['MotDePasse'];
+  $Acces = $_POST['Acces'];
 
   // Validate the 'NomPrenom' field
-  if (empty($NomPrenom)) {
-    throw new Exception("Le champ Nom Prénom ne peut pas être vide");
+  if (empty($Utilisateur)) {
+    throw new Exception("Le champ Utilisateur ne peut pas être vide");
   }
 
   // Prepare the INSERT statement
-  $query = "INSERT INTO SaTable (NomPrenom, Societe, Pays, Contrat, DomaineActivite) VALUES (:NomPrenom, :Societe, :Pays, :Contrat, :DomaineActivite)";
+  $query = "INSERT INTO Connexion (Utilisateur, MotDePasse, Acces) VALUES (:Utilisateur, :MotDePasse, :Acces)";
   $stmt = $pdo->prepare($query);
 
   // Bind the values to the placeholders
-  $stmt->bindParam(':NomPrenom', $NomPrenom);
-  $stmt->bindParam(':Societe', $Societe);
-  $stmt->bindParam(':Pays', $Pays);
-  $stmt->bindParam(':Contrat', $Contrat);
-  $stmt->bindParam(':DomaineActivite', $DomaineActivite);
+  $stmt->bindParam(':Utilisateur', $Utilisateur);
+  $stmt->bindParam(':MotDePasse', $MotDePasse);
+  $stmt->bindParam(':Acces', $Acces);
 
   // Execute the INSERT statement
   $stmt->execute();

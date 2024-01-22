@@ -19,7 +19,9 @@ if ($acces !== 'Admin') {
 
 $user_id = isset($_SESSION['utilisateur']) ? $_SESSION['utilisateur'] : null;
 
-
+$dsn = "pgsql:host=localhost;dbname=bddcrmete;options='--client_encoding=UTF8'";
+$user = "postgres";
+$password = "root";
 
 // Établir la connexion à la base de données
 $conn = mysqli_connect($host, $user, $password, $database);
