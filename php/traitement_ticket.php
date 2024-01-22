@@ -1,0 +1,31 @@
+<?php
+// Vérification si le formulaire a été soumis
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    // Récupération des données du formulaire
+    $nom = $_POST['nom'];
+    $email = $_POST['email'];
+    $sujet = $_POST['sujet'];
+    $message = $_POST['message'];
+
+    // Envoi de l'e-mail
+    $to = "guilhem.desarcy-lemiere@2027.icam.fr"; // Remplacez cette adresse par l'adresse où vous souhaitez recevoir les tickets
+    $subject = "Nouveau ticket : " . $sujet;
+    $body = "Un nouveau ticket a été soumis :\n\n";
+    $body .= "Nom : " . $nom . "\n";
+    $body .= "E-mail : " . $email . "\n";
+    $body .= "Sujet : " . $sujet . "\n";
+    $body .= "Message : " . $message . "\n";
+    $headers = "From: " . $email;
+
+    // Utilisation de la fonction mail() pour envoyer l'e-mail
+    if (mail($to, $subject, $body, $headers)) {
+        // Redirection vers la page de ticket avec le statut de succès
+        header("Location: ticket.php?status=success");
+        exit();
+    } else {
+        // Redirection vers la page de ticket avec le statut d'erreur
+        header("Location: ticket.php?status=error");
+        exit();
+    }
+}
+?>
