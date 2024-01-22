@@ -67,6 +67,22 @@ function convertirTaille($taille)
 
 ?>
 
+<?php
+// Remplacez les valeurs suivantes par les informations de votre base de données
+$host = "localhost";
+$port = "5432";
+$dbname = "bddcrmete";
+$user = "postgres";
+$password = "root";
+
+// Établir la connexion à la base de données PostgreSQL
+$conn = pg_connect("host=$host port=$port dbname=$dbname user=$user password=$password");
+
+if (!$conn) {
+    die("Échec de la connexion à la base de données: " . pg_last_error());
+}
+?>
+
 <!DOCTYPE html>
 <html>
 
