@@ -1,9 +1,7 @@
 <?php
 session_start();
 
-$dsn = "mysql:host=localhost;dbname=bddcrmete;charset=utf8mb4";
-$user = "root";
-$password = "@dminETE";
+
 
 
 $utilisateur = $_POST['Utilisateur'];
