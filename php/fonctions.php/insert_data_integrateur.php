@@ -4,9 +4,7 @@ error_reporting(E_ALL);
 ini_set('display_errors', 1);
 
 
-$dsn = "mysql:host=localhost;dbname=bddcrmete;charset=utf8mb4";
-$user = "Boss";
-$password = "D34thR0ck";
+
 
 
 try {

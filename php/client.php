@@ -352,9 +352,7 @@ if (!isset($_SESSION['utilisateur'])) {
       </thead>
       <tbody>
         <?php
-          $dsn = "mysql:host=localhost;dbname=bddcrmete;charset=utf8mb4";
-          $user = "Boss";
-          $password = "D34thR0ck";
+
 
           try {
             $pdo = new PDO($dsn, $user, $password);
@@ -413,9 +411,7 @@ if (!isset($_SESSION['utilisateur'])) {
       </thead>
       <tbody>
         <?php
-          $dsn = "mysql:host=localhost;dbname=bddcrmete;charset=utf8mb4";
-          $user = "Boss";
-          $password = "D34thR0ck";
+
 
           try {
             $pdo = new PDO($dsn, $user, $password);
@@ -460,9 +456,7 @@ if (!isset($_SESSION['utilisateur'])) {
       </thead>
       <tbody>
         <?php
-          $dsn = "mysql:host=localhost;dbname=bddcrmete;charset=utf8mb4";
-          $user = "Boss";
-          $password = "D34thR0ck";
+
 
           try {
             $pdo = new PDO($dsn, $user, $password);
@@ -505,9 +499,7 @@ if (!isset($_SESSION['utilisateur'])) {
       </thead>
       <tbody>
         <?php
-          $dsn = "mysql:host=localhost;dbname=bddcrmete;charset=utf8mb4";
-          $user = "Boss";
-          $password = "D34thR0ck";
+
 
           try {
             $pdo = new PDO($dsn, $user, $password);

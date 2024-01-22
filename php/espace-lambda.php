@@ -256,10 +256,7 @@ document.getElementById('AjoutTexte').addEventListener('submit', function(e) {
 
 $user_id = isset($_SESSION['utilisateur']) ? $_SESSION['utilisateur'] : null;
 
-$host = 'localhost'; // L'hôte de la base de données
-$user = 'Boss'; // Le nom d'utilisateur de la base de données
-$password = 'D34thR0ck'; // Le mot de passe de la base de données
-$database = 'bddcrmete'; // Le nom de la base de données
+
 
 // Établir la connexion à la base de données
 $conn = mysqli_connect($host, $user, $password, $database);

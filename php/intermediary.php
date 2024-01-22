@@ -7,10 +7,7 @@ if (!isset($_SESSION['utilisateur'])) {
     exit();
 }
 
-// Se connecter à la base de données
-$dsn = "mysql:host=localhost;dbname=bddcrmete;charset=utf8mb4";
-$user = "Boss";
-$password = "D34thR0ck";
+
 
 try {
     $pdo = new PDO($dsn, $user, $password);
