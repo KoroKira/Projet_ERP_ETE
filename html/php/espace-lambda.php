@@ -263,7 +263,7 @@ $user_id = isset($_SESSION['utilisateur']) ? $_SESSION['utilisateur'] : null;
 
 
 // Établir la connexion à la base de données
-$conn = pg_connect($dsn, $user, $password);
+$conn = pg_connect("host=localhost dbname=bddcrmete user=postgre password=root");
 
 // Vérifier la connexion
 if (!$conn) {
