@@ -12,7 +12,212 @@ if (!isset($_SESSION['utilisateur'])) {
 
 <!DOCTYPE html>
 <html>
-<link rel="stylesheet" type="text/css" href="../css/full.css">
+    <style>
+        html {
+            height: 100%;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background-image: url('../image/fondbleu.jpg');
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-position: center center;
+            height: 100%;
+            margin: 0;
+            padding: 0;
+            background-attachment: fixed; /* Fixe l'image de fond */
+        }
+
+        h1, h2 {
+            color: #c1272d;
+            font-size: 24px;
+            text-align: center;
+            text-shadow: 2px 2px 4px #ffffff;
+            margin: 20px 0;
+        }
+
+        form {
+            background-color: #ffffff;
+            border-radius: 5px;
+            margin: 20px auto;
+            padding: 20px;
+            max-width: 800px;
+        }
+
+        table {
+            background-color: #ffffff;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            margin: 5px auto;
+            padding: 5px;
+            width: 100%;
+            table-layout: fixed;
+            font-size: 10px; /* Set the table font size to 10px */
+        }
+
+        table th {
+            background-color: #c1272d;
+            color: #ffffff;
+            font-size: 7px;
+            font-weight: bold;
+            padding: 8px 10px; /* Adjust the padding for the table header cells */
+            text-align: left; /* Add text alignment for the table header cells */
+            word-wrap: break-word;
+        }
+
+        table td {
+            border-bottom: 1px solid #dddddd;
+            padding: 10px;
+            word-wrap: break-word;
+            max-width: 150px;
+            font-size: 10px; /* Set the table cell font size to 10px */
+        }
+
+        table td:first-child {
+            font-weight: bold;
+            white-space: nowrap;
+        }
+
+        button {
+            background-color: #c1272d;
+            border: none;
+            border-radius: 5px;
+            color: #ffffff;
+            cursor: pointer;
+            font-size: 12px; /* Reduce the button font size to 12px */
+            padding: 8px 16px; /* Adjust the button padding */
+        }
+
+        button:hover {
+            background-color: #a12026;
+        }
+
+        label {
+            color: #c1272d;
+            display: block;
+            font-size: 14px;
+            margin-top: 10px;
+        }
+
+        input[type="text"],
+        input[type="number"] {
+            border: 1px solid #dddddd;
+            border-radius: 5px;
+            box-sizing: border-box;
+            font-size: 14px;
+            padding: 8px;
+            width: 100%;
+        }
+
+        input[type="submit"] {
+            background-color: #c1272d;
+            border: none;
+            border-radius: 5px;
+            color: #ffffff;
+            cursor: pointer;
+            font-size: 16px;
+            padding: 10px 20px;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #a12026;
+        }
+
+        p.small-text {
+            color: green;
+            text-align: center;
+            text-decoration: underline;
+            text-shadow: -2px -2px 4px white, 2px -2px 4px white, -2px 2px 4px white, 2px 2px 4px white;
+            font-size: 14px; /* Set the small text font size to 10px */
+        }
+
+        p.small-text a {
+            color: green;
+            text-align: center;
+            text-decoration: underline;
+            text-shadow: -2px -2px 4px white, 2px -2px 4px white, -2px 2px 4px white, 2px 2px 4px white;
+        }
+
+        /* Ajout de styles pour les cellules éditables */
+        table td.editable {
+            cursor: pointer;
+        }
+
+        /* Styles pour la fenêtre modale */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 99999;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0, 0, 0, 0.5);
+        }
+
+        .modal-content {
+            background-color: #FDF4E9;
+            margin: 15% auto;
+            font-size: 25px;
+            padding: 20px;
+            border: 1px solid #888;
+            width: 80%;
+            text-align: center;
+            line-height: 1.5; /* Espacement entre les lignes pour une meilleure lisibilité */
+            color: #333; /* Couleur du texte */
+            font-family: Arial, sans-serif; /* Police de caractères */
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2); /* Ajout d'une ombre pour une apparence plus visuelle */
+            border-radius: 10px; /* Ajout des bords arrondis */
+        }
+
+        .close {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+            cursor: pointer;
+            margin-top: -10px; /* Ajustement de la position du bouton de fermeture */
+        }
+
+        .close:hover,
+        .close:focus {
+            color: #333;
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+        .delete-button {
+            background: none;
+            border: none;
+            color: #c1272d;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s, color 0.3s; /* Add transition effect */
+        }
+
+        .delete-button:hover {
+            background-color: #c1272d; /* Change background color on hover */
+            color: #ffffff; /* Change text color on hover */
+    }
+
+        /* Styles pour les conteneurs des tableaux */
+    .table-container {
+      max-height: 300px; /* Limite de 10 lignes visuellement */
+      overflow-y: auto; /* Barre de défilement verticale */
+    }
+
+    table thead th {
+        position: sticky; /* Rend l'en-tête fixe */
+        top: 0; /* Positionne l'en-tête en haut du conteneur */
+        z-index: 1; /* Assure que l'en-tête reste au-dessus du contenu du tableau */
+      }
+
+    </style>
+
+
 <head>
     <meta charset="UTF-8">
     <title>Modifier les données</title>
@@ -57,7 +262,7 @@ if (!isset($_SESSION['utilisateur'])) {
                 $column = $_POST['column'];
                 $value = $_POST['value'];
 
-                $query = "UPDATE matable SET $column = :value WHERE id = :id";
+                $query = "UPDATE MaTable SET $column = :value WHERE id = :id";
                 $stmt = $pdo->prepare($query);
                 $stmt->bindParam(':value', $value);
                 $stmt->bindParam(':id', $id);
@@ -74,7 +279,7 @@ if (!isset($_SESSION['utilisateur'])) {
                     exit();
                 }
 
-                $query = "DELETE FROM matable WHERE id = :id";
+                $query = "DELETE FROM MaTable WHERE id = :id";
                 $stmt = $pdo->prepare($query);
                 $stmt->bindParam(':id', $id);
                 $stmt->execute();
@@ -82,7 +287,7 @@ if (!isset($_SESSION['utilisateur'])) {
                 echo "Données supprimées avec succès!";
             }
 
-            $query = "SELECT * FROM matable";
+            $query = "SELECT * FROM MaTable";
             $stmt = $pdo->prepare($query);
             $stmt->execute();
             $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
@@ -290,7 +495,7 @@ if (!isset($_SESSION['utilisateur'])) {
                 $column = $_POST['column'];
                 $value = $_POST['value'];
 
-                $query = "UPDATE tatable SET $column = :value WHERE id = :id";
+                $query = "UPDATE TaTable SET $column = :value WHERE id = :id";
                 $stmt = $pdo->prepare($query);
                 $stmt->bindParam(':value', $value);
                 $stmt->bindParam(':id', $id);
@@ -300,7 +505,7 @@ if (!isset($_SESSION['utilisateur'])) {
             } elseif (isset($_POST['delete'])) {
                 $id = $_POST['id'];
 
-                $query = "DELETE FROM tatable WHERE id = :id";
+                $query = "DELETE FROM TaTable WHERE id = :id";
                 $stmt = $pdo->prepare($query);
                 $stmt->bindParam(':id', $id);
                 $stmt->execute();
@@ -309,7 +514,7 @@ if (!isset($_SESSION['utilisateur'])) {
             }
         }
 
-        $query = "SELECT * FROM tatable";
+        $query = "SELECT * FROM TaTable";
         $stmt = $pdo->prepare($query);
         $stmt->execute();
         $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
@@ -470,7 +675,7 @@ if (!isset($_SESSION['utilisateur'])) {
                 $column = $_POST['column'];
                 $value = $_POST['value'];
 
-                $query = "UPDATE satable SET $column = :value WHERE id = :id";
+                $query = "UPDATE SaTable SET $column = :value WHERE id = :id";
                 $stmt = $pdo->prepare($query);
                 $stmt->bindParam(':value', $value);
                 $stmt->bindParam(':id', $id);
@@ -480,7 +685,7 @@ if (!isset($_SESSION['utilisateur'])) {
             } elseif (isset($_POST['delete'])) {
                 $id = $_POST['id'];
 
-                $query = "DELETE FROM satable WHERE id = :id";
+                $query = "DELETE FROM SaTable WHERE id = :id";
                 $stmt = $pdo->prepare($query);
                 $stmt->bindParam(':id', $id);
                 $stmt->execute();
@@ -489,7 +694,7 @@ if (!isset($_SESSION['utilisateur'])) {
             }
         }
 
-        $query = "SELECT * FROM satable";
+        $query = "SELECT * FROM SaTable";
         $stmt = $pdo->prepare($query);
         $stmt->execute();
         $result = $stmt->fetchAll(PDO::FETCH_ASSOC);

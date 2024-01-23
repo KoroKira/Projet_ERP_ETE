@@ -3,6 +3,102 @@
 <head>
   <meta charset="UTF-8">
   <title>Connexion</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-image: url('image/fondbleu.jpg');
+      background-repeat: no-repeat;
+      background-position: center center;
+      background-size: cover;
+      height: 100vh; /* Correction pour remplir entièrement la fenêtre */
+    }
+
+    h1 {
+      color: #c1272d;
+      font-size: 36px;
+      text-align: center;
+      text-shadow: 2px 2px 4px #ffffff;
+      margin-top: 50px;
+    }
+
+    form {
+      background-color: #ffffff;
+      border-radius: 5px;
+      margin: 20px auto;
+      padding: 20px;
+      width: 800px;
+      box-sizing: border-box;
+    }
+
+    form h2 {
+      color: #c1272d;
+      font-size: 24px;
+      text-align: center;
+      margin-top: 0;
+    }
+
+    button {
+      background-color: #c1272d;
+      border: none;
+      border-radius: 5px;
+      color: #ffffff;
+      cursor: pointer;
+      font-size: 16px;
+      padding: 10px 20px;
+    }
+
+    button:hover {
+      background-color: #a12026;
+    }
+
+    label {
+      color: #c1272d;
+      display: block;
+      font-size: 14px;
+      margin-top: 10px;
+    }
+
+    input[type="text"],
+    input[type="number"],
+    input[type="password"] {
+      border: 1px solid #dddddd;
+      border-radius: 5px;
+      box-sizing: border-box;
+      font-size: 14px;
+      padding: 8px;
+      width: 100%;
+    }
+
+    input[type="submit"] {
+      background-color: #c1272d;
+      border: none;
+      border-radius: 5px;
+      color: #ffffff;
+      cursor: pointer;
+      font-size: 16px;
+      padding: 10px 20px;
+    }
+
+    input[type="submit"]:hover {
+      background-color: #a12026;
+    }
+
+    p.small-text {
+      color: green;
+      text-align: center;
+      text-decoration: underline;
+      text-shadow: -2px -2px 4px white, 2px -2px 4px white, -2px 2px 4px white, 2px 2px 4px white;
+    }
+
+    p.small-text a {
+      color: green;
+      text-align: center;
+      text-decoration: underline;
+      text-shadow: -2px -2px 4px white, 2px -2px 4px white, -2px 2px 4px white, 2px 2px 4px white;
+    }
+  </style>
 </head>
 <body>
   <h1>Connexion</h1>

@@ -40,7 +40,39 @@ try {
 <head>
   <meta charset="UTF-8">
   <title>Accueil</title>
-  <link rel="stylesheet" type="text/css" href="../css/full.css">
+  <style>
+    body {
+      background-image: url('../image/fondbleu.jpg');
+      background-repeat: no-repeat;
+      background-size: cover;
+      background-position: center center;
+      height: 100vh; /* Ajout de la propriété height */
+    }
+
+    h1 {
+      color: #c1272d;
+      font-size: 36px;
+      text-align: center;
+      text-shadow: 2px 2px 4px #ffffff; /* Modifié : ombre blanche */
+      margin-top: 50px;
+    }
+
+    button {
+      background-color: #c1272d;
+      border: none;
+      border-radius: 5px;
+      color: #ffffff;
+      cursor: pointer;
+      font-size: 16px;
+      padding: 10px 20px;
+      display: block;
+      margin: 20px auto;
+    }
+
+    button:hover {
+      background-color: #a12026;
+    }
+  </style>
   <link rel="stylesheet" type="text/css" href="../css/style.css">
 </head>
 <body>

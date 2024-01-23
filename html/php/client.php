@@ -16,7 +16,117 @@ if (!isset($_SESSION['utilisateur'])) {
 <head>
     <meta charset="UTF-8">
     <title>Tableaux CRM</title>
-    <link rel="stylesheet" type="text/css" href="../css/full.css">
+    <style>
+      body {
+        background-image: url('../image/fondbleu.jpg');
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center;
+        margin: 0;
+        padding: 0;
+        height: 100vh; /* Ajout de la propriété height */
+        background-attachment: fixed; /* Fixe l'image de fond */
+      }
+
+      h1 {
+        color: #c1272d;
+        font-size: 36px;
+        text-align: center;
+        text-shadow: 2px 2px 4px #ffffff;
+        margin-top: 50px;
+      }
+
+      h2 {
+        color: #000000;
+        font-size: 20px;
+        text-align: center;
+        text-shadow: 2px 2px 4px #ffffff;
+        margin-top: 50px;
+      }
+
+      table {
+        margin: 30px auto 0;
+        border-collapse: collapse;
+        width: 90%;
+        max-width: 800px;
+        background-color: #ffffff;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      }
+
+      /* Styles pour l'en-tête du tableau */
+      table thead th {
+        position: sticky; /* Rend l'en-tête fixe */
+        top: 0; /* Positionne l'en-tête en haut du conteneur */
+        z-index: 1; /* Assure que l'en-tête reste au-dessus du contenu du tableau */
+      }
+
+
+      th, td {
+        padding: 10px;
+        text-align: center;
+      }
+
+      th {
+        background-color: #c1272d;
+        color: #ffffff;
+        font-size: 12px; /* Ajout de la taille de police */
+        cursor: pointer; /* Ajout de la propriété cursor */
+        position: relative; /* Ajout de la propriété position */
+      }
+
+      th::after {
+        content: "";
+        display: inline-block;
+        width: 0;
+        height: 0;
+        border-style: solid;
+        border-width: 5px;
+        margin-left: 5px;
+        vertical-align: middle;
+        transition: all 0.3s;
+      }
+
+      th.asc::after {
+        border-color: transparent transparent #ffffff;
+        margin-left: 10px;
+      }
+
+      th.desc::after {
+        border-color: #ffffff transparent transparent;
+        margin-left: 10px;
+      }
+
+      tr:nth-child(even) {
+        background-color: #f2f2f2;
+      }
+
+      table td {
+        font-size: 10px; /* Ajout de la taille de police */
+      }
+
+      p.small-text {
+      color: green;
+      text-align: center;
+      text-decoration: underline;
+      text-shadow: -2px -2px 4px white, 2px -2px 4px white, -2px 2px 4px white, 2px 2px 4px white;
+    }
+
+    p.small-text a {
+      color: green;
+      text-align: center;
+      text-decoration: underline;
+      text-shadow: -2px -2px 4px white, 2px -2px 4px white, -2px 2px 4px white, 2px 2px 4px white;
+    }
+
+    /* Styles pour les conteneurs des tableaux */
+    .table-container {
+      max-height: 300px; /* Limite de 10 lignes visuellement */
+      overflow-y: auto; /* Barre de défilement verticale */
+    }
+
+
+    </style>
+
 <script>
   document.addEventListener("DOMContentLoaded", function() {
     const headers = document.querySelectorAll("#infoTable th");
@@ -249,7 +359,7 @@ if (!isset($_SESSION['utilisateur'])) {
             $pdo = new PDO($dsn, $user, $password);
             $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
-            $query = "SELECT * FROM matable";
+            $query = "SELECT * FROM MaTable";
             $stmt = $pdo->prepare($query);
             $stmt->execute();
             $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
@@ -309,7 +419,7 @@ if (!isset($_SESSION['utilisateur'])) {
             $pdo = new PDO($dsn, $user, $password);
             $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
-            $query = "SELECT * FROM tatable";
+            $query = "SELECT * FROM TaTable";
             $stmt = $pdo->prepare($query);
             $stmt->execute();
             $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
@@ -356,7 +466,7 @@ if (!isset($_SESSION['utilisateur'])) {
             $pdo = new PDO($dsn, $user, $password);
             $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
-            $query = "SELECT * FROM satable";
+            $query = "SELECT * FROM SaTable";
             $stmt = $pdo->prepare($query);
             $stmt->execute();
             $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
@@ -401,7 +511,7 @@ if (!isset($_SESSION['utilisateur'])) {
             $pdo = new PDO($dsn, $user, $password);
             $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
-            $query = "SELECT * FROM notretablee";
+            $query = "SELECT * FROM NotreTable";
             $stmt = $pdo->prepare($query);
             $stmt->execute();
             $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
