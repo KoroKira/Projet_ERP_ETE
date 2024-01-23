@@ -184,7 +184,7 @@ if (!isset($_SESSION['utilisateur'])) {
     <option value="devis">Devis</option>
   </select>
   <br>
-  <label for="statusDate">Date du statut :</label>
+  <label for="statusdate">Date du statut :</label>
   <input type="text" id="statusDate" name="statusDate" required>
   <br>
   <label for="number">Numéro :</label>
@@ -196,8 +196,8 @@ if (!isset($_SESSION['utilisateur'])) {
   <label for="contact">Contact :</label>
   <input type="text" id="contact" name="contact" required>
   <br>
-  <label for="projectName">Nom du projet :</label>
-  <input type="text" id="projectName" name="projectName" required>
+  <label for="projectname">Nom du projet :</label>
+  <input type="text" id="projectname" name="projectname" required>
   <br>
   <label for="referrer">Apporteur d'affaire :</label>
   <input type="text" id="referrer" name="referrer" required>
@@ -223,14 +223,14 @@ if (!isset($_SESSION['utilisateur'])) {
   <label for="probability">Probabilité :</label>
   <input type="text" id="probability" name="probability" required>
   <br>
-  <label for="orderDate">Date de commande :</label>
-  <input type="text" id="orderDate" name="orderDate" required>
+  <label for="orderdate">Date de commande :</label>
+  <input type="text" id="orderdate" name="orderdate" required>
   <br>
-  <label for="potentialRevenue">CA potentiel :</label>
-  <input type="text" id="potentialRevenue" name="potentialRevenue" required>
+  <label for="potentialrevenue">CA potentiel :</label>
+  <input type="text" id="potentialrevenue" name="potentialrevenue" required>
   <br>
-  <label for="additionalInfo">Informations complémentaires :</label>
-  <input type="text" id="additionalInfo" name="additionalInfo" required>
+  <label for="additionalinfo">Informations complémentaires :</label>
+  <input type="text" id="additionalinfo" name="additionalinfo" required>
   <br>
 </form>
 
@@ -241,8 +241,8 @@ if (!isset($_SESSION['utilisateur'])) {
   <label for="pays">Pays :</label>
   <input type="text" id="pays" name="pays" required>
   <br>
-  <label for="CLIENT">Client :</label>
-  <input type="text" id="CLIENT" name="CLIENT" required>
+  <label for="client">Client :</label>
+  <input type="text" id="client" name="client" required>
   <br>
   <label for="label">Libellé :</label>
   <input type="text" id="label" name="label" required>
@@ -253,11 +253,11 @@ if (!isset($_SESSION['utilisateur'])) {
   <label for="intermediary">Intermédiaire :</label>
   <input type="text" id="intermediary" name="intermediary" required>
   <br>
-  <label for="DateOffre">Date Offre :</label>
-  <input type="text" id="DateOffre" name="DateOffre" required>
+  <label for="dateoffre">Date Offre :</label>
+  <input type="text" id="dateoffre" name="dateoffre" required>
   <br>
-  <label for="montantHT">Montant HT :</label>
-  <input type="text" id="montantHT" name="montantHT" required>
+  <label for="montantht">Montant HT :</label>
+  <input type="text" id="montantht" name="montantht" required>
   <br>
 </form>
 
@@ -265,20 +265,20 @@ if (!isset($_SESSION['utilisateur'])) {
 
 
 <form id="Ajout_Datas">
-  <label for="NomPrenom">Nom Prénom :</label>
-  <input type="text" id="NomPrenom" name="NomPrenom" required>
+  <label for="nomprenom">Nom Prénom :</label>
+  <input type="text" id="nomprenom" name="nomprenom" required>
   <br>
-  <label for="Societe">Société :</label>
-  <input type="text" id="Societe" name="Societe" required>
+  <label for="societe">Société :</label>
+  <input type="text" id="societe" name="societe" required>
   <br>
-  <label for="Pays">Pays (si plusieurs, séparer par une virgule) :</label>
-  <input type="text" id="Pays" name="Pays" required>
+  <label for="pays">Pays (si plusieurs, séparer par une virgule) :</label>
+  <input type="text" id="pays" name="pays" required>
   <br>
-  <label for="Contrat">Contrat :</label>
-  <input type="text" id="Contrat" name="Contrat" required>
+  <label for="contrat">Contrat :</label>
+  <input type="text" id="contrat" name="contrat" required>
   <br>
-  <label for="DomaineActivite">Domaine d'activité :</label>
-  <input type="text" id="DomaineActivite" name="DomaineActivite" required>
+  <label for="domaineactivite">Domaine d'activité :</label>
+  <input type="text" id="domaineactivite" name="domaineactivite" required>
 </form>
 
 <button id="transferationbouton" style="display: block; margin: 0 auto;">Transférer vers la base de données "Stratégie d'export Afrique ETE département Eau" - Apporteur d'affaire</button>
@@ -286,17 +286,17 @@ if (!isset($_SESSION['utilisateur'])) {
 
 
 <form id="Ajouter_Des_Datas">
-  <label for="SOCIETE">Société :</label>
-  <input type="text" id="SOCIETE" name="SOCIETE" required>
+  <label for="societe">Société :</label>
+  <input type="text" id="societe" name="societe" required>
   <br>
-  <label for="PAYS">Pays :</label>
-  <input type="text" id="PAYS" name="PAYS" required>
+  <label for="pays">Pays :</label>
+  <input type="text" id="pays" name="pays" required>
   <br>
-  <label for="CONTRAT">Contrat :</label>
-  <input type="text" id="CONTRAT" name="CONTRAT" required>
+  <label for="contrat">Contrat :</label>
+  <input type="text" id="contrat" name="contrat" required>
   <br>
-  <label for="DOMAINEACTIVITE">Domaine d'activité :</label>
-  <input type="text" id="DOMAINEACTIVITE" name="DOMAINEACTIVITE" required>
+  <label for="domaineactivite">Domaine d'activité :</label>
+  <input type="text" id="domaineactivite" name="domaineactivite" required>
 </form>
 
 <button id="transferationboutonINTEGRATEUR" style="display: block; margin: 0 auto;">Transférer vers la base de données "Stratégie d'export Afrique ETE département Eau" - Intégrateur</button>
