@@ -607,7 +607,7 @@ if (!isset($_SESSION['utilisateur'])) {
             });
 
             // Send the modified data to the server
-            fetch('fonctions.php/save_modifications.php', {
+            fetch('fonctions.php/save_modifs.php', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
@@ -630,7 +630,7 @@ if (!isset($_SESSION['utilisateur'])) {
                 formData.append('id', id);
                 formData.append('delete', 'true'); // Add the delete flag
 
-                fetch('fonctions.php/save_modifications.php', {
+                fetch('fonctions.php/save_modifs.php', {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json'
@@ -647,7 +647,6 @@ if (!isset($_SESSION['utilisateur'])) {
             }
         }
     </script>
-
 
 
     <?php } catch (PDOException $e) {
@@ -783,7 +782,7 @@ if (!isset($_SESSION['utilisateur'])) {
             });
 
             // Send the modified data to the server
-            fetch('fonctions.php/save_modifications.php', {
+            fetch('fonctions.php/save_modif_app_aff.php', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
@@ -806,7 +805,7 @@ if (!isset($_SESSION['utilisateur'])) {
                 formData.append('id', id);
                 formData.append('delete', 'true'); // Add the delete flag
 
-                fetch('fonctions.php/save_modifications.php', {
+                fetch('fonctions.php/save_modif_app_aff.php', {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json'
