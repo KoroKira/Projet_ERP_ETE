@@ -1,0 +1,1739 @@
+/* full.css */
+
+body {
+  background-image: url('../image/fondbleu.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center center;
+  height: 100vh; /* Ajout de la propriété height */
+}
+
+h1 {
+  color: #c1272d;
+  font-size: 36px;
+  text-align: center;
+  text-shadow: 2px 2px 4px #ffffff; /* Modifié : ombre blanche */
+  margin-top: 50px;
+}
+
+button {
+  background-color: #c1272d;
+  border: none;
+  border-radius: 5px;
+  color: #ffffff;
+  cursor: pointer;
+  font-size: 16px;
+  padding: 10px 20px;
+  display: block;
+  margin: 20px auto;
+}
+
+button:hover {
+  background-color: #a12026;
+}
+
+body {
+  background-image: url('../image/fondbleu.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center center;
+  height: 100vh; /* Ajout de la propriété height */
+  background-attachment: fixed; /* Fixe l'image de fond */
+}
+
+h1 {
+  color: #c1272d;
+  font-size: 36px;
+  text-align: center;
+  text-shadow: 2px 2px 4px #ffffff;
+  margin-top: 50px;
+}
+
+h2 {
+  color: #c1272d;
+  font-size: 24px;
+  text-align: center;
+  text-shadow: 2px 2px 4px #ffffff;
+  margin-top: 20px;
+}
+
+form {
+  background-color: #ffffff;
+  border-radius: 5px;
+  margin: 20px auto;
+  padding: 20px;
+  width: 800px;
+  box-sizing: border-box;
+}
+
+form h2 {
+  color: #c1272d;
+  font-size: 24px;
+  text-align: center;
+  margin-top: 0;
+}
+
+table {
+  background-color: #ffffff;
+  border-radius: 5px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  margin: 20px auto;
+  padding: 20px;
+  width: 100%;
+  table-layout: fixed;
+}
+
+table th {
+  background-color: #c1272d;
+  color: #ffffff;
+  font-size: 14px;
+  font-weight: bold;
+  padding: 10px;
+  text-align: left;
+}
+
+table td {
+  border-bottom: 1px solid #dddddd;
+  padding: 10px;
+  word-wrap: break-word;
+  max-width: 150px;
+}
+
+table td:first-child {
+  font-weight: bold;
+  white-space: nowrap;
+}
+
+button {
+  background-color: #c1272d;
+  border: none;
+  border-radius: 5px;
+  color: #ffffff;
+  cursor: pointer;
+  font-size: 16px;
+  padding: 10px 20px;
+}
+
+button:hover {
+  background-color: #a12026;
+}
+
+label {
+  color: #c1272d;
+  display: block;
+  font-size: 14px;
+  margin-top: 10px;
+}
+
+input[type="text"],
+input[type="number"] {
+  border: 1px solid #dddddd;
+  border-radius: 5px;
+  box-sizing: border-box;
+  font-size: 14px;
+  padding: 8px;
+  width: 100%;
+}
+
+input[type="submit"] {
+  background-color: #c1272d;
+  border: none;
+  border-radius: 5px;
+  color: #ffffff;
+  cursor: pointer;
+  font-size: 16px;
+  padding: 10px 20px;
+}
+
+input[type="submit"]:hover {
+  background-color: #a12026;
+}
+
+p.small-text {
+  color: green;
+  text-align: center;
+  text-decoration: underline;
+  text-shadow: -2px -2px 4px white, 2px -2px 4px white, -2px 2px 4px white, 2px 2px 4px white;
+}
+
+p.small-text a {
+  color: green;
+  text-align: center;
+  text-decoration: underline;
+  text-shadow: -2px -2px 4px white, 2px -2px 4px white, -2px 2px 4px white, 2px 2px 4px white;
+}
+
+    /* Styles pour les conteneurs des tableaux */
+.table-container {
+  max-height: 300px; /* Limite de 10 lignes visuellement */
+  overflow-y: auto; /* Barre de défilement verticale */
+}
+
+table thead th {
+    position: sticky; /* Rend l'en-tête fixe */
+    top: 0; /* Positionne l'en-tête en haut du conteneur */
+    z-index: 1; /* Assure que l'en-tête reste au-dessus du contenu du tableau */
+  }
+
+
+body {
+    background-image: url('../image/fondbleu.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    margin: 0;
+    padding: 0;
+    height: 100vh; /* Ajout de la propriété height */
+    background-attachment: fixed; /* Fixe l'image de fond */
+}
+
+h1 {
+    color: #c1272d;
+    font-size: 36px;
+    text-align: center;
+    text-shadow: 2px 2px 4px #ffffff;
+    margin-top: 50px;
+}
+
+h2 {
+    color: #000000;
+    font-size: 20px;
+    text-align: center;
+    text-shadow: 2px 2px 4px #ffffff;
+    margin-top: 50px;
+}
+
+table {
+    margin: 30px auto 0;
+    border-collapse: collapse;
+    width: 90%;
+    max-width: 800px;
+    background-color: #ffffff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+  /* Styles pour l'en-tête du tableau */
+table thead th {
+    position: sticky; /* Rend l'en-tête fixe */
+    top: 0; /* Positionne l'en-tête en haut du conteneur */
+    z-index: 1; /* Assure que l'en-tête reste au-dessus du contenu du tableau */
+}
+
+
+th, td {
+    padding: 10px;
+    text-align: center;
+}
+
+th {
+    background-color: #c1272d;
+    color: #ffffff;
+    font-size: 12px; /* Ajout de la taille de police */
+    cursor: pointer; /* Ajout de la propriété cursor */
+    position: relative; /* Ajout de la propriété position */
+}
+
+th::after {
+    content: "";
+    display: inline-block;
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-width: 5px;
+    margin-left: 5px;
+    vertical-align: middle;
+    transition: all 0.3s;
+}
+
+th.asc::after {
+    border-color: transparent transparent #ffffff;
+    margin-left: 10px;
+}
+
+th.desc::after {
+    border-color: #ffffff transparent transparent;
+    margin-left: 10px;
+}
+
+tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+table td {
+    font-size: 10px; /* Ajout de la taille de police */
+}
+
+p.small-text {
+  color: green;
+  text-align: center;
+  text-decoration: underline;
+  text-shadow: -2px -2px 4px white, 2px -2px 4px white, -2px 2px 4px white, 2px 2px 4px white;
+}
+
+p.small-text a {
+  color: green;
+  text-align: center;
+  text-decoration: underline;
+  text-shadow: -2px -2px 4px white, 2px -2px 4px white, -2px 2px 4px white, 2px 2px 4px white;
+}
+
+/* Styles pour les conteneurs des tableaux */
+.table-container {
+  max-height: 300px; /* Limite de 10 lignes visuellement */
+  overflow-y: auto; /* Barre de défilement verticale */
+}
+
+body {
+  background-image: url('../image/fondbleu.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center center;
+  height: 100vh; /* Ajout de la propriété height */
+  background-attachment: fixed; /* Fixe l'image de fond */
+}
+
+h1 {
+  color: #c1272d;
+  font-size: 36px;
+  text-align: center;
+  text-shadow: 2px 2px 4px #ffffff;
+  margin-top: 50px;
+}
+
+h2 {
+  color: #c1272d;
+  font-size: 24px;
+  text-align: center;
+  text-shadow: 2px 2px 4px #ffffff;
+  margin-top: 20px;
+}
+
+form {
+  background-color: #ffffff;
+  border-radius: 5px;
+  margin: 20px auto;
+  padding: 20px;
+  width: 800px;
+  box-sizing: border-box;
+}
+
+form h2 {
+  color: #c1272d;
+  font-size: 24px;
+  text-align: center;
+  margin-top: 0;
+}
+
+table {
+  background-color: #ffffff;
+  border-radius: 5px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  margin: 20px auto;
+  padding: 20px;
+  width: 100%;
+  table-layout: fixed;
+}
+
+table th {
+  background-color: #c1272d;
+  color: #ffffff;
+  font-size: 14px;
+  font-weight: bold;
+  padding: 10px;
+  text-align: left;
+}
+
+table td {
+  border-bottom: 1px solid #dddddd;
+  padding: 10px;
+  word-wrap: break-word;
+  max-width: 150px;
+}
+
+table td:first-child {
+  font-weight: bold;
+  white-space: nowrap;
+}
+
+button {
+  background-color: #c1272d;
+  border: none;
+  border-radius: 5px;
+  color: #ffffff;
+  cursor: pointer;
+  font-size: 16px;
+  padding: 10px 20px;
+}
+
+button:hover {
+  background-color: #a12026;
+}
+
+label {
+  color: #c1272d;
+  display: block;
+  font-size: 14px;
+  margin-top: 10px;
+}
+
+input[type="text"],
+input[type="number"] {
+  border: 1px solid #dddddd;
+  border-radius: 5px;
+  box-sizing: border-box;
+  font-size: 14px;
+  padding: 8px;
+  width: 100%;
+}
+
+input[type="submit"] {
+  background-color: #c1272d;
+  border: none;
+  border-radius: 5px;
+  color: #ffffff;
+  cursor: pointer;
+  font-size: 16px;
+  padding: 10px 20px;
+}
+
+input[type="submit"]:hover {
+  background-color: #a12026;
+}
+
+p.small-text {
+  color: green;
+  text-align: center;
+  text-decoration: underline;
+  text-shadow: -2px -2px 4px white, 2px -2px 4px white, -2px 2px 4px white, 2px 2px 4px white;
+}
+
+p.small-text a {
+  color: green;
+  text-align: center;
+  text-decoration: underline;
+  text-shadow: -2px -2px 4px white, 2px -2px 4px white, -2px 2px 4px white, 2px 2px 4px white;
+}
+
+.delete-button {
+    background: none;
+    border: none;
+    color: #c1272d;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s, color 0.3s; /* Add transition effect */
+}
+
+.delete-button:hover {
+    background-color: #c1272d; /* Change background color on hover */
+    color: #ffffff; /* Change text color on hover */
+}
+
+    /* Styles pour les conteneurs des tableaux */
+.table-container {
+  max-height: 300px; /* Limite de 10 lignes visuellement */
+  overflow-y: auto; /* Barre de défilement verticale */
+}
+
+table thead th {
+    position: sticky; /* Rend l'en-tête fixe */
+    top: 0; /* Positionne l'en-tête en haut du conteneur */
+    z-index: 1; /* Assure que l'en-tête reste au-dessus du contenu du tableau */
+}
+
+
+body {
+  background-image: url('../image/fondbleu.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center center;
+  height: 100vh; /* Ajout de la propriété height */
+  background-attachment: fixed; /* Fixe l'image de fond */
+}
+
+h1 {
+  color: #c1272d;
+  font-size: 36px;
+  text-align: center;
+  text-shadow: 2px 2px 4px #ffffff;
+  margin-top: 50px;
+}
+
+h2 {
+  color: #c1272d;
+  font-size: 24px;
+  text-align: center;
+  text-shadow: 2px 2px 4px #ffffff;
+  margin-top: 20px;
+}
+
+form {
+  background-color: #ffffff;
+  border-radius: 5px;
+  margin: 20px auto;
+  padding: 20px;
+  width: 800px;
+  box-sizing: border-box;
+}
+
+form h2 {
+  color: #c1272d;
+  font-size: 24px;
+  text-align: center;
+  margin-top: 0;
+}
+
+table {
+  background-color: #ffffff;
+  border-radius: 5px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  margin: 20px auto;
+  padding: 20px;
+  width: 100%;
+  table-layout: fixed;
+}
+
+table th {
+  background-color: #c1272d;
+  color: #ffffff;
+  font-size: 14px;
+  font-weight: bold;
+  padding: 10px;
+  text-align: left;
+}
+
+table td {
+  border-bottom: 1px solid #dddddd;
+  padding: 10px;
+  word-wrap: break-word;
+  max-width: 150px;
+}
+
+table td:first-child {
+  font-weight: bold;
+  white-space: nowrap;
+}
+
+button {
+  background-color: #c1272d;
+  border: none;
+  border-radius: 5px;
+  color: #ffffff;
+  cursor: pointer;
+  font-size: 16px;
+  padding: 10px 20px;
+}
+
+button:hover {
+  background-color: #a12026;
+}
+
+label {
+  color: #c1272d;
+  display: block;
+  font-size: 14px;
+  margin-top: 10px;
+}
+
+input[type="text"],
+input[type="number"] {
+  border: 1px solid #dddddd;
+  border-radius: 5px;
+  box-sizing: border-box;
+  font-size: 14px;
+  padding: 8px;
+  width: 100%;
+}
+
+input[type="submit"] {
+  background-color: #c1272d;
+  border: none;
+  border-radius: 5px;
+  color: #ffffff;
+  cursor: pointer;
+  font-size: 16px;
+  padding: 10px 20px;
+}
+
+input[type="submit"]:hover {
+  background-color: #a12026;
+}
+
+p.small-text {
+  color: green;
+  text-align: center;
+  text-decoration: underline;
+  text-shadow: -2px -2px 4px white, 2px -2px 4px white, -2px 2px 4px white, 2px 2px 4px white;
+}
+
+p.small-text a {
+  color: green;
+  text-align: center;
+  text-decoration: underline;
+  text-shadow: -2px -2px 4px white, 2px -2px 4px white, -2px 2px 4px white, 2px 2px 4px white;
+}
+
+.delete-button {
+        background: none;
+        border: none;
+        color: #c1272d;
+        cursor: pointer;
+        font-size: 16px;
+        transition: background-color 0.3s, color 0.3s; /* Add transition effect */
+    }
+
+.delete-button:hover {
+        background-color: #c1272d; /* Change background color on hover */
+        color: #ffffff; /* Change text color on hover */
+}
+
+textarea {
+  border: 1px solid #dddddd;
+  border-radius: 5px;
+  box-sizing: border-box;
+  font-size: 14px;
+  padding: 8px;
+  width: 100%;
+  height: 200px; /* Modifier la taille de la zone de texte */
+}
+
+.center-button {
+    display: block;
+    margin: 0 auto;
+}
+
+    /* Styles pour les conteneurs des tableaux */
+.table-container {
+  max-height: 300px; /* Limite de 10 lignes visuellement */
+  overflow-y: auto; /* Barre de défilement verticale */
+}
+
+table thead th {
+    position: sticky; /* Rend l'en-tête fixe */
+    top: 0; /* Positionne l'en-tête en haut du conteneur */
+    z-index: 1; /* Assure que l'en-tête reste au-dessus du contenu du tableau */
+  }
+
+
+body {
+  background-image: url('../image/fondbleu.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center center;
+  height: 100vh;
+  background-attachment: fixed;
+}
+
+h1, h2, form-h2 {
+  color: #c1272d;
+  font-size: 24px;
+  text-align: center;
+  text-shadow: 2px 2px 4px #ffffff;
+  margin-top: 50px;
+}
+
+form-h2 {
+  margin-top: 0px;
+}
+
+table {
+  background-color: #ffffff;
+  border-radius: 5px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  margin: 20px auto;
+  padding: 20px;
+  width: 100%;
+  table-layout: fixed;
+}
+
+table th {
+  background-color: #c1272d;
+  color: #ffffff;
+  font-size: 14px;
+  font-weight: bold;
+  padding: 10px;
+  text-align: left;
+  cursor: pointer;
+}
+
+table td {
+  border-bottom: 1px solid #dddddd;
+  padding: 10px;
+  max-width: 150px;
+  white-space: nowrap; /* Prevent text from wrapping */
+  overflow: hidden; /* Hide any overflowing content */
+  text-overflow: ellipsis; /* Display an ellipsis (...) for truncated content */
+}
+
+table td:first-child {
+  font-weight: bold;
+  white-space: nowrap;
+}
+
+button, input[type="submit"] {
+  background-color: #c1272d;
+  color: #ffffff;
+  padding: 10px 20px;
+  border-radius: 5px;
+  border: none;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+button:hover, input[type="submit"]:hover {
+  background-color: #a12026;
+}
+
+label {
+  color: #c1272d;
+  display: block;
+  font-size: 14px;
+  margin-top: 10px;
+}
+
+input[type="text"], input[type="number"], textarea {
+  background-color: rgba(255, 255, 255, 0.8);
+  border: none;
+  border-radius: 5px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  padding: 10px;
+  margin-bottom: 10px;
+  width: 100%;
+  color: #c1272d;
+}
+
+textarea {
+  border: 1px solid #dddddd;
+  border-radius: 5px;
+  box-sizing: border-box;
+  font-size: 14px;
+  padding: 8px;
+  width: 100%;
+  height: 200px;
+}
+
+.delete-button {
+  background: none;
+  border: none;
+  color: #c1272d;
+  cursor: pointer;
+	z-index: 9999;
+  font-size: 16px;
+  transition: background-color 0.3s, color 0.3s; /* Add transition effect */
+}
+
+.delete-button:hover {
+  background-color: #c1272d; /* Change background color on hover */
+  color: #ffffff; /* Change text color on hover */
+}
+
+p.small-text {
+  color: green;
+  text-align: center;
+  text-decoration: underline;
+  text-shadow: -2px -2px 4px white, 2px -2px 4px white, -2px 2px 4px white, 2px 2px 4px white;
+}
+
+.form-wrapper, form {
+  background-color: #f9f6f5;
+  border-radius: 5px;
+  margin: 20px 0;
+  padding: 30px;
+  max-width: 400px;
+  box-sizing: border-box;
+  position: fixed;
+  top: 50%;
+  left: -400px;
+  transform: translate(0, -50%);
+  transition: left 0.3s;
+  z-index: 90000;
+  border: 1px solid #000000;
+}
+
+form.show {
+  left: 20px;
+  z-index: 90000;
+}
+
+.form-wrapper.show {
+  left: -400px;
+  z-index: 90000;
+}
+
+.toggle-button {
+  position: absolute;
+  top: 50%;
+  right: -40px;
+  transform: translateY(-50%);
+  width: 40px;
+  height: 40px;
+  background-color: rgba(0, 0, 0, 0.1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 999;
+  transition: right 0.3s;
+}
+
+.toggle-button .arrow {
+  width: 20px;
+  height: 20px;
+  border: solid #c1272d;
+  border-width: 2px 2px 0 0;
+  transform: rotate(-135deg);
+  transition: transform 0.3s;
+  z-index: 90000;
+}
+
+.form-wrapper.show .toggle-button .arrow {
+  transform: rotate(45deg);
+  z-index: 90000;
+}
+
+/* Style pour le formulaire d'ajout */
+#AjoutTexte label {
+  color: #000000;
+}
+
+#AjoutTexte input[type="text"],
+#AjoutTexte textarea {
+  background-color: rgba(255, 255, 255, 0.8);
+  border: none;
+  border-radius: 5px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  padding: 10px;
+  margin-bottom: 10px;
+  width: 100%;
+  color: #000000;
+}
+
+#AjoutTexte input[type="submit"] {
+  background-color: #c1272d;
+  color: #ffffff;
+  padding: 10px 20px;
+  border-radius: 5px;
+  border: none;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+#AjoutTexte input[type="submit"]:hover {
+  background-color: #a12026;
+}
+
+th {
+  background-color: #c1272d;
+  color: #ffffff;
+  font-size: 12px;
+  cursor: pointer;
+  position: relative;
+}
+
+th::after {
+  content: "";
+  display: inline-block;
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 5px;
+  margin-left: 5px;
+  vertical-align: middle;
+  transition: all 0.3s;
+}
+
+th.asc::after {
+  border-color: transparent transparent #ffffff;
+  margin-left: 10px;
+}
+
+th.desc::after {
+  border-color: #ffffff transparent transparent;
+  margin-left: 10px;
+}
+
+tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+
+/* Styles for the table containers */
+.table-container {
+  max-height: 300px;
+  overflow-y: auto;
+}
+
+table thead th {
+  position: sticky;
+  top: 0;
+  z-index: 1;
+}
+
+#filesTable td:last-child {
+    white-space: nowrap;
+}
+
+.delete-button {
+  top: 50%; /* Ajuster la position verticale du bouton dans le conteneur */
+  left: 50%; /* Ajuster la position horizontale du bouton dans le conteneur */
+  transform: translate(-50%, -50%); /* Centrer le bouton dans son conteneur */
+  z-index: 9999; /* Ajuster le z-index pour s'assurer que le bouton est au-dessus du contenu du tableau */
+  background: none;
+  border: none;
+  padding: 75px;
+  color: #c1272d;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.delete-button i {
+    margin-right: 5px; /* Ajouter un espacement entre l'icône et le texte */
+}
+
+.delete-button:hover {
+    color: #ffffff;
+    background-color: #c1272d;
+}
+
+
+
+
+/* Add the word-wrap property to table cells within the specific table */
+#filesTable td {
+  word-wrap: break-word;
+  max-width: 200px;
+}
+
+  #filesTable td:nth-child(1),
+  #filesTable td:nth-child(4) {
+    max-width: 300px; /* You can adjust this value as needed */
+}
+
+
+body {
+  background-image: url('../image/fondbleu.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center center;
+  height: 100vh; /* Ajout de la propriété height */
+  background-attachment: fixed; /* Fixe l'image de fond */
+}
+
+h1 {
+  color: #c1272d;
+  font-size: 36px;
+  text-align: center;
+  text-shadow: 2px 2px 4px #ffffff;
+  margin-top: 50px;
+}
+
+form {
+  background-color: #ffffff;
+  border-radius: 5px;
+  margin: 20px auto;
+  padding: 20px;
+  width: 400px;
+  box-sizing: border-box;
+}
+
+label {
+  color: #c1272d;
+  display: block;
+  font-size: 14px;
+  margin-top: 10px;
+}
+
+input[type="text"],
+input[type="number"] {
+  border: 1px solid #dddddd;
+  border-radius: 5px;
+  box-sizing: border-box;
+  font-size: 14px;
+  padding: 8px;
+  width: 100%;
+}
+
+input[type="submit"] {
+  background-color: #c1272d;
+  border: none;
+  border-radius: 5px;
+  color: #ffffff;
+  cursor: pointer;
+  font-size: 16px;
+  padding: 10px 20px;
+}
+
+input[type="submit"]:hover {
+  background-color: #a12026;
+}
+
+p.small-text {
+  color: green;
+  text-align: center;
+  text-decoration: underline;
+  text-shadow: -2px -2px 4px white, 2px -2px 4px white, -2px 2px 4px white, 2px 2px 4px white;
+}
+
+p.small-text a {
+  color: green;
+  text-align: center;
+  text-decoration: underline;
+  text-shadow: -2px -2px 4px white, 2px -2px 4px white, -2px 2px 4px white, 2px 2px 4px white;
+}
+
+textarea {
+  border: 1px solid #dddddd;
+  border-radius: 5px;
+  box-sizing: border-box;
+  font-size: 14px;
+  padding: 8px;
+  width: 100%;
+  height: 200px; /* Modifier la taille de la zone de texte */
+}
+
+table {
+  background-color: #ffffff;
+  border-radius: 5px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  margin: 20px auto;
+  padding: 20px;
+  width: 100%;
+  table-layout: fixed;
+}
+
+table th {
+  background-color: #c1272d;
+  color: #ffffff;
+  font-size: 14px;
+  font-weight: bold;
+  padding: 10px;
+  text-align: left;
+}
+
+table td {
+  border-bottom: 1px solid #dddddd;
+  padding: 10px;
+  word-wrap: break-word;
+  max-width: 150px;
+}
+
+table td:first-child {
+  font-weight: bold;
+  white-space: nowrap;
+}
+
+    /* Styles pour les conteneurs des tableaux */
+.table-container {
+  max-height: 300px; /* Limite de 10 lignes visuellement */
+  overflow-y: auto; /* Barre de défilement verticale */
+}
+
+table thead th {
+    position: sticky; /* Rend l'en-tête fixe */
+    top: 0; /* Positionne l'en-tête en haut du conteneur */
+    z-index: 1; /* Assure que l'en-tête reste au-dessus du contenu du tableau */
+  }
+
+
+  html {
+      height: 100%;
+      margin: 0;
+      padding: 0;
+  }
+
+  body {
+      background-image: url('../image/fondbleu.jpg');
+      background-repeat: no-repeat;
+      background-size: cover;
+      background-position: center center;
+      height: 100%;
+      margin: 0;
+      padding: 0;
+      background-attachment: fixed; /* Fixe l'image de fond */
+  }
+
+  h1, h2 {
+      color: #c1272d;
+      font-size: 24px;
+      text-align: center;
+      text-shadow: 2px 2px 4px #ffffff;
+      margin: 20px 0;
+  }
+
+  form {
+      background-color: #ffffff;
+      border-radius: 5px;
+      margin: 20px auto;
+      padding: 20px;
+      max-width: 800px;
+  }
+
+  table {
+      background-color: #ffffff;
+      border-radius: 5px;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+      margin: 5px auto;
+      padding: 5px;
+      width: 100%;
+      table-layout: fixed;
+      font-size: 10px; /* Set the table font size to 10px */
+  }
+
+  table th {
+      background-color: #c1272d;
+      color: #ffffff;
+      font-size: 7px;
+      font-weight: bold;
+      padding: 8px 10px; /* Adjust the padding for the table header cells */
+      text-align: left; /* Add text alignment for the table header cells */
+      word-wrap: break-word;
+  }
+
+  table td {
+      border-bottom: 1px solid #dddddd;
+      padding: 10px;
+      word-wrap: break-word;
+      max-width: 150px;
+      font-size: 10px; /* Set the table cell font size to 10px */
+  }
+
+  table td:first-child {
+      font-weight: bold;
+      white-space: nowrap;
+  }
+
+  button {
+      background-color: #c1272d;
+      border: none;
+      border-radius: 5px;
+      color: #ffffff;
+      cursor: pointer;
+      font-size: 12px; /* Reduce the button font size to 12px */
+      padding: 8px 16px; /* Adjust the button padding */
+  }
+
+  button:hover {
+      background-color: #a12026;
+  }
+
+  label {
+      color: #c1272d;
+      display: block;
+      font-size: 14px;
+      margin-top: 10px;
+  }
+
+  input[type="text"],
+  input[type="number"] {
+      border: 1px solid #dddddd;
+      border-radius: 5px;
+      box-sizing: border-box;
+      font-size: 14px;
+      padding: 8px;
+      width: 100%;
+  }
+
+  input[type="submit"] {
+      background-color: #c1272d;
+      border: none;
+      border-radius: 5px;
+      color: #ffffff;
+      cursor: pointer;
+      font-size: 16px;
+      padding: 10px 20px;
+  }
+
+  input[type="submit"]:hover {
+      background-color: #a12026;
+  }
+
+  p.small-text {
+      color: green;
+      text-align: center;
+      text-decoration: underline;
+      text-shadow: -2px -2px 4px white, 2px -2px 4px white, -2px 2px 4px white, 2px 2px 4px white;
+      font-size: 14px; /* Set the small text font size to 10px */
+  }
+
+  p.small-text a {
+      color: green;
+      text-align: center;
+      text-decoration: underline;
+      text-shadow: -2px -2px 4px white, 2px -2px 4px white, -2px 2px 4px white, 2px 2px 4px white;
+  }
+
+  /* Ajout de styles pour les cellules éditables */
+  table td.editable {
+      cursor: pointer;
+  }
+
+  /* Styles pour la fenêtre modale */
+  .modal {
+      display: none;
+      position: fixed;
+      z-index: 99999;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      overflow: auto;
+      background-color: rgba(0, 0, 0, 0.5);
+  }
+
+  .modal-content {
+      background-color: #FDF4E9;
+      margin: 15% auto;
+      font-size: 25px;
+      padding: 20px;
+      border: 1px solid #888;
+      width: 80%;
+      text-align: center;
+      line-height: 1.5; /* Espacement entre les lignes pour une meilleure lisibilité */
+      color: #333; /* Couleur du texte */
+      font-family: Arial, sans-serif; /* Police de caractères */
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2); /* Ajout d'une ombre pour une apparence plus visuelle */
+      border-radius: 10px; /* Ajout des bords arrondis */
+  }
+
+  .close {
+      color: #aaa;
+      float: right;
+      font-size: 28px;
+      font-weight: bold;
+      cursor: pointer;
+      margin-top: -10px; /* Ajustement de la position du bouton de fermeture */
+  }
+
+  .close:hover,
+  .close:focus {
+      color: #333;
+      text-decoration: none;
+      cursor: pointer;
+  }
+
+  .delete-button {
+      background: none;
+      border: none;
+      color: #c1272d;
+      cursor: pointer;
+      font-size: 16px;
+      transition: background-color 0.3s, color 0.3s; /* Add transition effect */
+  }
+
+  .delete-button:hover {
+      background-color: #c1272d; /* Change background color on hover */
+      color: #ffffff; /* Change text color on hover */
+}
+
+  /* Styles pour les conteneurs des tableaux */
+.table-container {
+max-height: 300px; /* Limite de 10 lignes visuellement */
+overflow-y: auto; /* Barre de défilement verticale */
+}
+
+table thead th {
+  position: sticky; /* Rend l'en-tête fixe */
+  top: 0; /* Positionne l'en-tête en haut du conteneur */
+  z-index: 1; /* Assure que l'en-tête reste au-dessus du contenu du tableau */
+}
+
+
+html {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-image: url('../image/fondbleu.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    background-attachment: fixed; /* Fixe l'image de fond */
+}
+
+h1, h2 {
+    color: #c1272d;
+    font-size: 24px;
+    text-align: center;
+    text-shadow: 2px 2px 4px #ffffff;
+    margin: 20px 0;
+}
+
+form {
+    background-color: #ffffff;
+    border-radius: 5px;
+    margin: 20px auto;
+    padding: 20px;
+    max-width: 800px;
+}
+
+table {
+    background-color: #ffffff;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    margin: 5px auto;
+    padding: 5px;
+    width: 100%;
+    table-layout: fixed;
+    font-size: 10px; /* Set the table font size to 10px */
+}
+
+table th {
+    background-color: #c1272d;
+    color: #ffffff;
+    font-size: 7px;
+    font-weight: bold;
+    padding: 8px 10px; /* Adjust the padding for the table header cells */
+    text-align: left; /* Add text alignment for the table header cells */
+    word-wrap: break-word;
+}
+
+table td {
+    border-bottom: 1px solid #dddddd;
+    padding: 10px;
+    word-wrap: break-word;
+    max-width: 150px;
+    font-size: 10px; /* Set the table cell font size to 10px */
+}
+
+table td:first-child {
+    font-weight: bold;
+    white-space: nowrap;
+}
+
+button {
+    background-color: #c1272d;
+    border: none;
+    border-radius: 5px;
+    color: #ffffff;
+    cursor: pointer;
+    font-size: 12px; /* Reduce the button font size to 12px */
+    padding: 8px 16px; /* Adjust the button padding */
+}
+
+button:hover {
+    background-color: #a12026;
+}
+
+label {
+    color: #c1272d;
+    display: block;
+    font-size: 14px;
+    margin-top: 10px;
+}
+
+input[type="text"],
+input[type="number"] {
+    border: 1px solid #dddddd;
+    border-radius: 5px;
+    box-sizing: border-box;
+    font-size: 14px;
+    padding: 8px;
+    width: 100%;
+}
+
+input[type="submit"] {
+    background-color: #c1272d;
+    border: none;
+    border-radius: 5px;
+    color: #ffffff;
+    cursor: pointer;
+    font-size: 16px;
+    padding: 10px 20px;
+}
+
+input[type="submit"]:hover {
+    background-color: #a12026;
+}
+
+p.small-text {
+    color: green;
+    text-align: center;
+    text-decoration: underline;
+    text-shadow: -2px -2px 4px white, 2px -2px 4px white, -2px 2px 4px white, 2px 2px 4px white;
+    font-size: 14px; /* Set the small text font size to 10px */
+}
+
+p.small-text a {
+    color: green;
+    text-align: center;
+    text-decoration: underline;
+    text-shadow: -2px -2px 4px white, 2px -2px 4px white, -2px 2px 4px white, 2px 2px 4px white;
+}
+
+/* Ajout de styles pour les cellules éditables */
+table td.editable {
+    cursor: pointer;
+}
+
+/* Styles pour la fenêtre modale */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 99999;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+.modal-content {
+    background-color: #FDF4E9;
+    margin: 15% auto;
+    font-size: 25px;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+    text-align: center;
+    line-height: 1.5; /* Espacement entre les lignes pour une meilleure lisibilité */
+    color: #333; /* Couleur du texte */
+    font-family: Arial, sans-serif; /* Police de caractères */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2); /* Ajout d'une ombre pour une apparence plus visuelle */
+    border-radius: 10px; /* Ajout des bords arrondis */
+}
+
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+    margin-top: -10px; /* Ajustement de la position du bouton de fermeture */
+}
+
+.close:hover,
+.close:focus {
+    color: #333;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.delete-button {
+    background: none;
+    border: none;
+    color: #c1272d;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s, color 0.3s; /* Add transition effect */
+}
+
+.delete-button:hover {
+    background-color: #c1272d; /* Change background color on hover */
+    color: #ffffff; /* Change text color on hover */
+}
+
+/* Styles pour les conteneurs des tableaux */
+.table-container {
+max-height: 300px; /* Limite de 10 lignes visuellement */
+overflow-y: auto; /* Barre de défilement verticale */
+}
+
+table thead th {
+position: sticky; /* Rend l'en-tête fixe */
+top: 0; /* Positionne l'en-tête en haut du conteneur */
+z-index: 1; /* Assure que l'en-tête reste au-dessus du contenu du tableau */
+}
+
+
+body {
+  background-image: url('../image/fondbleu.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center center;
+  height: 100vh; /* Ajout de la propriété height */
+  background-attachment: fixed; /* Fixe l'image de fond */
+}
+
+h1 {
+  color: #c1272d;
+  font-size: 36px;
+  text-align: center;
+  text-shadow: 2px 2px 4px #ffffff;
+  margin-top: 50px;
+}
+
+form {
+  background-color: #ffffff;
+  border-radius: 5px;
+  margin: 20px auto;
+  padding: 20px;
+  width: 400px;
+  box-sizing: border-box;
+}
+
+label {
+  color: #c1272d;
+  display: block;
+  font-size: 14px;
+  margin-top: 10px;
+}
+
+input[type="text"],
+input[type="number"] {
+  border: 1px solid #dddddd;
+  border-radius: 5px;
+  box-sizing: border-box;
+  font-size: 14px;
+  padding: 8px;
+  width: 100%;
+}
+
+input[type="submit"] {
+  background-color: #c1272d;
+  border: none;
+  border-radius: 5px;
+  color: #ffffff;
+  cursor: pointer;
+  font-size: 16px;
+  padding: 10px 20px;
+}
+
+input[type="submit"]:hover {
+  background-color: #a12026;
+}
+
+p.small-text {
+  color: green;
+  text-align: center;
+  text-decoration: underline;
+  text-shadow: -2px -2px 4px white, 2px -2px 4px white, -2px 2px 4px white, 2px 2px 4px white;
+}
+
+p.small-text a {
+  color: green;
+  text-align: center;
+  text-decoration: underline;
+  text-shadow: -2px -2px 4px white, 2px -2px 4px white, -2px 2px 4px white, 2px 2px 4px white;
+}
+
+textarea {
+  border: 1px solid #dddddd;
+  border-radius: 5px;
+  box-sizing: border-box;
+  font-size: 14px;
+  padding: 8px;
+  width: 100%;
+  height: 200px; /* Modifier la taille de la zone de texte */
+}
+
+table {
+  background-color: #ffffff;
+  border-radius: 5px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  margin: 20px auto;
+  padding: 20px;
+  width: 100%;
+  table-layout: fixed;
+}
+
+table th {
+  background-color: #c1272d;
+  color: #ffffff;
+  font-size: 14px;
+  font-weight: bold;
+  padding: 10px;
+  text-align: left;
+}
+
+table td {
+  border-bottom: 1px solid #dddddd;
+  padding: 10px;
+  word-wrap: break-word;
+  max-width: 150px;
+}
+
+table td:first-child {
+  font-weight: bold;
+  white-space: nowrap;
+}
+
+    /* Styles pour les conteneurs des tableaux */
+.table-container {
+  max-height: 300px; /* Limite de 10 lignes visuellement */
+  overflow-y: auto; /* Barre de défilement verticale */
+}
+
+table thead th {
+    position: sticky; /* Rend l'en-tête fixe */
+    top: 0; /* Positionne l'en-tête en haut du conteneur */
+    z-index: 1; /* Assure que l'en-tête reste au-dessus du contenu du tableau */
+  }
+
+.info-box {
+  background-color: #ffffff;
+  border-radius: 10px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  margin: 20px auto;
+  padding: 20px;
+  width: 80%;
+  max-width: 600px;
+}
+
+.info-box h2 {
+  color: #c1272d;
+  font-size: 24px;
+  text-align: center;
+}
+
+.info-box p {
+  font-size: 16px;
+  line-height: 1.6;
+  text-align: justify;
+}
+
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+h1 {
+    text-align: center;
+    color: #c1272d;
+}
+
+label {
+    display: block;
+    margin-bottom: 10px;
+}
+
+input[type="text"],
+textarea {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+textarea {
+    resize: vertical;
+    min-height: 100px;
+}
+
+input[type="submit"] {
+    background-color: #c1272d;
+    border: none;
+    color: #fff;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.success {
+    color: green;
+    font-weight: bold;
+}
+
+.error {
+    color: red;
+    font-weight: bold;
+}
+
+
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-image: url('image/fondbleu.jpg');
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+  height: 100vh; /* Correction pour remplir entièrement la fenêtre */
+}
+
+h1 {
+  color: #c1272d;
+  font-size: 36px;
+  text-align: center;
+  text-shadow: 2px 2px 4px #ffffff;
+  margin-top: 50px;
+}
+
+form {
+  background-color: #ffffff;
+  border-radius: 5px;
+  margin: 20px auto;
+  padding: 20px;
+  width: 800px;
+  box-sizing: border-box;
+}
+
+form h2 {
+  color: #c1272d;
+  font-size: 24px;
+  text-align: center;
+  margin-top: 0;
+}
+
+button {
+  background-color: #c1272d;
+  border: none;
+  border-radius: 5px;
+  color: #ffffff;
+  cursor: pointer;
+  font-size: 16px;
+  padding: 10px 20px;
+}
+
+button:hover {
+  background-color: #a12026;
+}
+
+label {
+  color: #c1272d;
+  display: block;
+  font-size: 14px;
+  margin-top: 10px;
+}
+
+input[type="text"],
+input[type="number"],
+input[type="password"] {
+  border: 1px solid #dddddd;
+  border-radius: 5px;
+  box-sizing: border-box;
+  font-size: 14px;
+  padding: 8px;
+  width: 100%;
+}
+
+input[type="submit"] {
+  background-color: #c1272d;
+  border: none;
+  border-radius: 5px;
+  color: #ffffff;
+  cursor: pointer;
+  font-size: 16px;
+  padding: 10px 20px;
+}
+
+input[type="submit"]:hover {
+  background-color: #a12026;
+}
+
+p.small-text {
+  color: green;
+  text-align: center;
+  text-decoration: underline;
+  text-shadow: -2px -2px 4px white, 2px -2px 4px white, -2px 2px 4px white, 2px 2px 4px white;
+}
+
+p.small-text a {
+  color: green;
+  text-align: center;
+  text-decoration: underline;
+  text-shadow: -2px -2px 4px white, 2px -2px 4px white, -2px 2px 4px white, 2px 2px 4px white;
+}
+
