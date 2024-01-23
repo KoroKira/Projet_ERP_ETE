@@ -199,13 +199,13 @@ if ($acces !== 'Admin') {
 
 
 <form id="AjoutCompte">
-  <label for="Utilisateur">Utilisateur :</label>
-  <input type="text" id="Utilisateur" name="Utilisateur" required>
+  <label for="utilisateur">Utilisateur :</label>
+  <input type="text" id="utilisateur" name="utilisateur" required>
   <br>
-  <label for="MotDePasse">Mot de passe :</label>
-  <input type="text" id="MotDePasse" name="MotDePasse" required>
-  <label for="Acces">Droit d'accès (mettre Admin ou Lambda) :</label>
-  <input type="text" id="Acces" name="Acces" required>
+  <label for="motdepasse">Mot de passe :</label>
+  <input type="text" id="motdepasse" name="motdepasse" required>
+  <label for="acces">Droit d'accès (mettre Admin ou Lambda) :</label>
+  <input type="text" id="acces" name="acces" required>
 </form>
 
 <button id="valider" style="display: block; margin: 0 auto;">Créer un nouveau compte utilisateur</button>
@@ -301,9 +301,9 @@ try {
         <?php foreach ($result as $row) { ?>
             <tr>
                 <td><?php echo $row['id']; ?></td>
-                <td class="editable" data-id="<?php echo $row['id']; ?>" data-column="Utilisateur"><?php echo $row['Utilisateur']; ?></td>
-                <td class="editable" data-id="<?php echo $row['id']; ?>" data-column="MotDePasse"><?php echo $row['MotDePasse']; ?></td>
-                <td class="editable" data-id="<?php echo $row['id']; ?>" data-column="Acces"><?php echo $row['Acces']; ?></td>
+                <td class="editable" data-id="<?php echo $row['id']; ?>" data-column="utilisateur"><?php echo $row['utilisateur']; ?></td>
+                <td class="editable" data-id="<?php echo $row['id']; ?>" data-column="motdepasse"><?php echo $row['motdepasse']; ?></td>
+                <td class="editable" data-id="<?php echo $row['id']; ?>" data-column="acces"><?php echo $row['acces']; ?></td>
                 <td>
                     <button class="delete-button" onclick="deleteRow(<?php echo $row['id']; ?>)" name="delete">
                         <i class="fas fa-trash-alt"></i>
