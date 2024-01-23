@@ -17,11 +17,11 @@ try {
   $year = $_POST['year'];
   $country = $_POST['country'];
   $status = $_POST['status'];
-  $statusDate = $_POST['statusDate'];
+  $statusdate = $_POST['statusdate'];
   $number = $_POST['number'];
   $client = $_POST['client'];
   $contact = $_POST['contact'];
-  $projectName = $_POST['projectName'];
+  $projectname = $_POST['projectname'];
   $referrer = $_POST['referrer'];
   $partner1 = $_POST['partner1'];
   $partner2 = $_POST['partner2'];
@@ -31,8 +31,8 @@ try {
   $amount = $_POST['amount'];
   $probability = $_POST['probability'];
   $orderDate = $_POST['orderDate'];
-  $potentialRevenue = $_POST['potentialRevenue'];
-  $additionalInfo = $_POST['additionalInfo'];
+  $potentialrevenue = $_POST['potentialrevenue'];
+  $additionalinfo = $_POST['additionalinfo'];
 
   // Validate the 'year' field
   if (empty($year)) {
@@ -40,18 +40,18 @@ try {
   }
 
   // Prepare the INSERT statement
-  $query = "INSERT INTO matable (year, country, status, statusDate, number, client, contact, projectName, referrer, partner1, partner2, partner3, partner4, duration, amount, probability, orderDate, potentialRevenue, additionalInfo) VALUES (:year, :country, :status, :statusDate, :number, :client, :contact, :projectName, :referrer, :partner1, :partner2, :partner3, :partner4, :duration, :amount, :probability, :orderDate, :potentialRevenue, :additionalInfo)";
+  $query = "INSERT INTO matable (year, country, status, statusdate, number, client, contact, projectname, referrer, partner1, partner2, partner3, partner4, duration, amount, probability, orderdate, potentialrevenue, additionalinfo) VALUES (:year, :country, :status, :statusdate, :number, :client, :contact, :projectname, :referrer, :partner1, :partner2, :partner3, :partner4, :duration, :amount, :probability, :orderdate, :potentialrevenue, :additionalinfo)";
   $stmt = $pdo->prepare($query);
 
   // Bind the values to the placeholders
   $stmt->bindParam(':year', $year);
   $stmt->bindParam(':country', $country);
   $stmt->bindParam(':status', $status);
-  $stmt->bindParam(':statusDate', $statusDate);
+  $stmt->bindParam(':statusdate', $statusdate);
   $stmt->bindParam(':number', $number);
   $stmt->bindParam(':client', $client);
   $stmt->bindParam(':contact', $contact);
-  $stmt->bindParam(':projectName', $projectName);
+  $stmt->bindParam(':projectname', $projectname);
   $stmt->bindParam(':referrer', $referrer);
   $stmt->bindParam(':partner1', $partner1);
   $stmt->bindParam(':partner2', $partner2);
@@ -60,9 +60,9 @@ try {
   $stmt->bindParam(':duration', $duration);
   $stmt->bindParam(':amount', $amount);
   $stmt->bindParam(':probability', $probability);
-  $stmt->bindParam(':orderDate', $orderDate);
-  $stmt->bindParam(':potentialRevenue', $potentialRevenue);
-  $stmt->bindParam(':additionalInfo', $additionalInfo);
+  $stmt->bindParam(':orderdate', $orderdate);
+  $stmt->bindParam(':potentialrevenue', $potentialrevenue);
+  $stmt->bindParam(':additionalinfo', $additionalinfo);
 
   // Execute the INSERT statement
   $stmt->execute();

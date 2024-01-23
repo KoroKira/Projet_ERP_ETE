@@ -14,25 +14,25 @@ try {
   $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
   // Retrieve the data from the AJAX request
-  $SOCIETE = $_POST['SOCIETE'];
-  $PAYS = $_POST['PAYS'];
-  $CONTRAT = $_POST['CONTRAT'];
-  $DOMAINEACTIVITE = $_POST['DOMAINEACTIVITE'];
+  $societe = $_POST['societe'];
+  $pays = $_POST['pays'];
+  $contrat = $_POST['contrat'];
+  $domaineactivite = $_POST['domaineactivite'];
 
   // Validate the 'Societe' field
-  if (empty($SOCIETE)) {
+  if (empty($societe)) {
     throw new Exception("Societe field cannot be empty");
   }
 
   // Prepare the INSERT statement
-  $query = "INSERT INTO notretable (SOCIETE, PAYS, CONTRAT, DOMAINEACTIVITE) VALUES (:SOCIETE, :PAYS, :CONTRAT, :DOMAINEACTIVITE)";
+  $query = "INSERT INTO notretable (societe, pays, contrat, domaineactivite) VALUES (:societe, :pays, :contrat, :domaineactivite)";
   $stmt = $pdo->prepare($query);
 
   // Bind the values to the placeholders
-  $stmt->bindParam(':SOCIETE', $SOCIETE);
-  $stmt->bindParam(':PAYS', $PAYS);
-  $stmt->bindParam(':CONTRAT', $CONTRAT);
-  $stmt->bindParam(':DOMAINEACTIVITE', $DOMAINEACTIVITE);
+  $stmt->bindParam(':societe', $societe);
+  $stmt->bindParam(':pays', $pays);
+  $stmt->bindParam(':contrat', $contrat);
+  $stmt->bindParam(':domaineactivite', $domaineactivite);
 
   // Execute the INSERT statement
   $stmt->execute();

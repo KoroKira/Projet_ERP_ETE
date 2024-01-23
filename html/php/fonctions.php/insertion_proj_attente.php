@@ -16,12 +16,12 @@ try {
 
   // Retrieve the data from the AJAX request
   $pays = $_POST['pays'];
-  $CLIENT = $_POST['CLIENT'];
+  $client = $_POST['client'];
   $label = $_POST['label'];
   $detail = $_POST['detail'];
   $intermediary = $_POST['intermediary'];
-  $DateOffre = $_POST['DateOffre'];
-  $montantHT = $_POST['montantHT'];
+  $dateoffre = $_POST['dateoffre'];
+  $montantht = $_POST['montantht'];
 
   // Validate the 'pays' field
   if (empty($pays)) {
@@ -29,23 +29,23 @@ try {
   }
 
   // Prepare the INSERT statement for TaTable
-  $query = "INSERT INTO tatable (pays, CLIENT, label, detail, intermediary, DateOffre, montantHT) VALUES (:pays, :CLIENT, :label, :detail, :intermediary, :DateOffre, :montantHT)";
+  $query = "INSERT INTO tatable (pays, client, label, detail, intermediary, dateoffre, montantht) VALUES (:pays, :client, :label, :detail, :intermediary, :dateoffre, :montantht)";
   $stmt = $pdo->prepare($query);
 
   // Bind the values to the placeholders
   $stmt->bindParam(':pays', $pays);
-  $stmt->bindParam(':CLIENT', $CLIENT);
+  $stmt->bindParam(':client', $client);
   $stmt->bindParam(':label', $label);
   $stmt->bindParam(':detail', $detail);
   $stmt->bindParam(':intermediary', $intermediary);
-  $stmt->bindParam(':DateOffre', $DateOffre);
-  $stmt->bindParam(':montantHT', $montantHT);
+  $stmt->bindParam(':dateoffre', $dateoffre);
+  $stmt->bindParam(':montmontanthtamontanthtntHT', $montantht);
 
   // Execute the INSERT statement for TaTable
   $stmt->execute();
 
   // Prepare the INSERT statement for LesIntermediaires
-  $queryIntermediaries = "INSERT INTO LesIntermediaires (intermediary, text) VALUES (:intermediary, 0)";
+  $queryIntermediaries = "INSERT INTO lesintermediaires (intermediary, text) VALUES (:intermediary, 0)";
   $stmtIntermediaries = $pdo->prepare($queryIntermediaries);
 
   // Bind the value to the placeholder

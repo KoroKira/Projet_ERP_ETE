@@ -15,21 +15,21 @@ try {
     $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
     // Retrieve the data from the AJAX request
-    $DateHeure = $_POST['DateHeure'];
+    $dateheure = $_POST['dateheure'];
     $texte = $_POST['texte'];
 
     // Validate the 'DateHeure' field
-    if (empty($DateHeure)) {
+    if (empty($dateheure)) {
         throw new Exception("Le champ DateHeure ne peut pas être vide");
     }
 
     // Prepare the INSERT statement
-    $query = "INSERT INTO user_data (user_id, file_name, date_time, text_content) VALUES (:user_id, '', :DateHeure, :texte)";
+    $query = "INSERT INTO user_data (user_id, file_name, date_time, text_content) VALUES (:user_id, '', :dateheure, :texte)";
     $stmt = $pdo->prepare($query);
 
     // Bind the values to the placeholders
     $stmt->bindParam(':user_id', $user_id);
-    $stmt->bindParam(':DateHeure', $DateHeure);
+    $stmt->bindParam(':dateheure', $dateheure);
     $stmt->bindParam(':texte', $texte);
 
     // Execute the INSERT statement
