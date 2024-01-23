@@ -359,7 +359,7 @@ if (!isset($_SESSION['utilisateur'])) {
             $pdo = new PDO($dsn, $user, $password);
             $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
-            $query = "SELECT * FROM MaTable";
+            $query = "SELECT * FROM matable";
             $stmt = $pdo->prepare($query);
             $stmt->execute();
             $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
@@ -373,7 +373,7 @@ if (!isset($_SESSION['utilisateur'])) {
               echo "<td>" . $row['number'] . "</td>";
               echo "<td>" . $row['client'] . "</td>";
               echo "<td>" . $row['contact'] . "</td>";
-              echo "<td>" . $row['projectName'] . "</td>";
+              echo "<td>" . $row['projectname'] . "</td>";
               echo "<td>" . $row['referrer'] . "</td>";
               echo "<td>" . $row['partner1'] . "</td>";
               echo "<td>" . $row['partner2'] . "</td>";
@@ -382,9 +382,9 @@ if (!isset($_SESSION['utilisateur'])) {
               echo "<td>" . $row['duration'] . "</td>";
               echo "<td>" . $row['amount'] . "</td>";
               echo "<td>" . $row['probability'] . "</td>";
-              echo "<td>" . $row['orderDate'] . "</td>";
-              echo "<td>" . $row['potentialRevenue'] . "</td>";
-              echo "<td>" . $row['additionalInfo'] . "</td>";
+              echo "<td>" . $row['orderdate'] . "</td>";
+              echo "<td>" . $row['potentialrevenue'] . "</td>";
+              echo "<td>" . $row['additionalinfo'] . "</td>";
               echo "</tr>";
             }
           } catch (PDOException $e) {
@@ -419,7 +419,7 @@ if (!isset($_SESSION['utilisateur'])) {
             $pdo = new PDO($dsn, $user, $password);
             $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
-            $query = "SELECT * FROM TaTable";
+            $query = "SELECT * FROM tatable";
             $stmt = $pdo->prepare($query);
             $stmt->execute();
             $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
@@ -427,12 +427,12 @@ if (!isset($_SESSION['utilisateur'])) {
             foreach ($result as $row) {
               echo "<tr>";
               echo "<td>" . $row['pays'] . "</td>";
-              echo "<td>" . $row['CLIENT'] . "</td>";
+              echo "<td>" . $row['client'] . "</td>";
               echo "<td>" . $row['label'] . "</td>";
               echo "<td>" . $row['detail'] . "</td>";
               echo "<td>" . $row['intermediary'] . "</td>";
-              echo "<td>" . $row['DateOffre'] . "</td>";
-              echo "<td>" . $row['montantHT'] . "</td>";
+              echo "<td>" . $row['dateoffre'] . "</td>";
+              echo "<td>" . $row['montantht'] . "</td>";
               echo "</tr>";
             }
           } catch (PDOException $e) {
@@ -466,18 +466,18 @@ if (!isset($_SESSION['utilisateur'])) {
             $pdo = new PDO($dsn, $user, $password);
             $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
-            $query = "SELECT * FROM SaTable";
+            $query = "SELECT * FROM satable";
             $stmt = $pdo->prepare($query);
             $stmt->execute();
             $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
             foreach ($result as $row) {
               echo "<tr>";
-              echo "<td>" . $row['NomPrenom'] . "</td>";
-              echo "<td>" . $row['Societe'] . "</td>";
-              echo "<td>" . $row['Pays'] . "</td>";
-              echo "<td>" . $row['Contrat'] . "</td>";
-              echo "<td>" . $row['DomaineActivite'] . "</td>";
+              echo "<td>" . $row['nomprenom'] . "</td>";
+              echo "<td>" . $row['societe'] . "</td>";
+              echo "<td>" . $row['pays'] . "</td>";
+              echo "<td>" . $row['contrat'] . "</td>";
+              echo "<td>" . $row['domaineactivite'] . "</td>";
               echo "</tr>";
             }
           } catch (PDOException $e) {
@@ -511,17 +511,17 @@ if (!isset($_SESSION['utilisateur'])) {
             $pdo = new PDO($dsn, $user, $password);
             $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
-            $query = "SELECT * FROM NotreTable";
+            $query = "SELECT * FROM notretable";
             $stmt = $pdo->prepare($query);
             $stmt->execute();
             $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
             foreach ($result as $row) {
               echo "<tr>";
-              echo "<td>" . $row['SOCIETE'] . "</td>";
-              echo "<td>" . $row['PAYS'] . "</td>";
-              echo "<td>" . $row['CONTRAT'] . "</td>";
-              echo "<td>" . $row['DOMAINEACTIVITE'] . "</td>";
+              echo "<td>" . $row['societe'] . "</td>";
+              echo "<td>" . $row['pays'] . "</td>";
+              echo "<td>" . $row['contrat'] . "</td>";
+              echo "<td>" . $row['domaineactivite'] . "</td>";
               echo "</tr>";
             }
           } catch (PDOException $e) {

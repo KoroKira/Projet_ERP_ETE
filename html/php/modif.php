@@ -259,7 +259,7 @@ if (!isset($_SESSION['utilisateur'])) {
                 $column = $_POST['column'];
                 $value = $_POST['value'];
 
-                $query = "UPDATE MaTable SET $column = :value WHERE id = :id";
+                $query = "UPDATE matable SET $column = :value WHERE id = :id";
                 $stmt = $pdo->prepare($query);
                 $stmt->bindParam(':value', $value);
                 $stmt->bindParam(':id', $id);
@@ -268,7 +268,7 @@ if (!isset($_SESSION['utilisateur'])) {
                 echo "Données mises à jour avec succès!";
             } 
 
-            $query = "SELECT * FROM MaTable";
+            $query = "SELECT * FROM matable";
             $stmt = $pdo->prepare($query);
             $stmt->execute();
             $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
@@ -313,7 +313,7 @@ if (!isset($_SESSION['utilisateur'])) {
                     <td class="editable" data-id="<?php echo $row['id']; ?>" data-column="number"><?php echo $row['number']; ?></td>
                     <td class="editable" data-id="<?php echo $row['id']; ?>" data-column="client"><?php echo $row['client']; ?></td>
                     <td class="editable" data-id="<?php echo $row['id']; ?>" data-column="contact"><?php echo $row['contact']; ?></td>
-                    <td class="editable" data-id="<?php echo $row['id']; ?>" data-column="projectName"><?php echo $row['projectName']; ?></td>
+                    <td class="editable" data-id="<?php echo $row['id']; ?>" data-column="projectname"><?php echo $row['projectname']; ?></td>
                     <td class="editable" data-id="<?php echo $row['id']; ?>" data-column="referrer"><?php echo $row['referrer']; ?></td>
                     <td class="editable" data-id="<?php echo $row['id']; ?>" data-column="partner1"><?php echo $row['partner1']; ?></td>
                     <td class="editable" data-id="<?php echo $row['id']; ?>" data-column="partner2"><?php echo $row['partner2']; ?></td>
@@ -322,9 +322,9 @@ if (!isset($_SESSION['utilisateur'])) {
                     <td class="editable" data-id="<?php echo $row['id']; ?>" data-column="duration"><?php echo $row['duration']; ?></td>
                     <td class="editable" data-id="<?php echo $row['id']; ?>" data-column="amount"><?php echo $row['amount']; ?></td>
                     <td class="editable" data-id="<?php echo $row['id']; ?>" data-column="probability"><?php echo $row['probability']; ?></td>
-                    <td class="editable" data-id="<?php echo $row['id']; ?>" data-column="orderDate"><?php echo $row['orderDate']; ?></td>
-                    <td class="editable" data-id="<?php echo $row['id']; ?>" data-column="potentialRevenue"><?php echo $row['potentialRevenue']; ?></td>
-                    <td class="editable" data-id="<?php echo $row['id']; ?>" data-column="additionalInfo"><?php echo $row['additionalInfo']; ?></td>
+                    <td class="editable" data-id="<?php echo $row['id']; ?>" data-column="orderdate"><?php echo $row['orderdate']; ?></td>
+                    <td class="editable" data-id="<?php echo $row['id']; ?>" data-column="potentialrevenue"><?php echo $row['potentialrevenue']; ?></td>
+                    <td class="editable" data-id="<?php echo $row['id']; ?>" data-column="additionalinfo"><?php echo $row['additionalinfo']; ?></td>
                 </tr>
             <?php } ?>
         </tbody>
@@ -436,7 +436,7 @@ if (!isset($_SESSION['utilisateur'])) {
                 $column = $_POST['column'];
                 $value = $_POST['value'];
 
-                $query = "UPDATE TaTable SET $column = :value WHERE id = :id";
+                $query = "UPDATE tatable SET $column = :value WHERE id = :id";
                 $stmt = $pdo->prepare($query);
                 $stmt->bindParam(':value', $value);
                 $stmt->bindParam(':id', $id);
@@ -446,7 +446,7 @@ if (!isset($_SESSION['utilisateur'])) {
             }
         }
 
-        $query = "SELECT * FROM TaTable";
+        $query = "SELECT * FROM tatable";
         $stmt = $pdo->prepare($query);
         $stmt->execute();
         $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
@@ -473,12 +473,12 @@ if (!isset($_SESSION['utilisateur'])) {
                 <tr>
                     <td><?php echo $row['id']; ?></td>
                     <td class="editable" data-id="<?php echo $row['id']; ?>" data-column="pays"><?php echo $row['pays']; ?></td>
-                    <td class="editable" data-id="<?php echo $row['id']; ?>" data-column="CLIENT"><?php echo $row['CLIENT']; ?></td>
+                    <td class="editable" data-id="<?php echo $row['id']; ?>" data-column="client"><?php echo $row['client']; ?></td>
                     <td class="editable" data-id="<?php echo $row['id']; ?>" data-column="label"><?php echo $row['label']; ?></td>
                     <td class="editable" data-id="<?php echo $row['id']; ?>" data-column="detail"><?php echo $row['detail']; ?></td>
                     <td class="editable" data-id="<?php echo $row['id']; ?>" data-column="intermediary"><?php echo $row['intermediary']; ?></td>
-                    <td class="editable" data-id="<?php echo $row['id']; ?>" data-column="DateOffre"><?php echo $row['DateOffre']; ?></td>
-                    <td class="editable" data-id="<?php echo $row['id']; ?>" data-column="montantHT"><?php echo $row['montantHT']; ?></td>
+                    <td class="editable" data-id="<?php echo $row['id']; ?>" data-column="dateoffre"><?php echo $row['dateoffre']; ?></td>
+                    <td class="editable" data-id="<?php echo $row['id']; ?>" data-column="montantht"><?php echo $row['montantht']; ?></td>
                 </tr>
             <?php } ?>
         </tbody>
@@ -575,7 +575,7 @@ if (!isset($_SESSION['utilisateur'])) {
                 $column = $_POST['column'];
                 $value = $_POST['value'];
 
-                $query = "UPDATE SaTable SET $column = :value WHERE id = :id";
+                $query = "UPDATE satable SET $column = :value WHERE id = :id";
                 $stmt = $pdo->prepare($query);
                 $stmt->bindParam(':value', $value);
                 $stmt->bindParam(':id', $id);
@@ -585,7 +585,7 @@ if (!isset($_SESSION['utilisateur'])) {
             }
         }
 
-        $query = "SELECT * FROM SaTable";
+        $query = "SELECT * FROM satable";
         $stmt = $pdo->prepare($query);
         $stmt->execute();
         $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
@@ -609,11 +609,11 @@ if (!isset($_SESSION['utilisateur'])) {
             <?php foreach ($result as $row) { ?>
                 <tr>
                     <td><?php echo $row['id']; ?></td>
-                    <td class="editable" data-id="<?php echo $row['id']; ?>" data-column="NomPrenom"><?php echo $row['NomPrenom']; ?></td>
-                    <td class="editable" data-id="<?php echo $row['id']; ?>" data-column="Societe"><?php echo $row['Societe']; ?></td>
-                    <td class="editable" data-id="<?php echo $row['id']; ?>" data-column="Pays"><?php echo $row['Pays']; ?></td>
-                    <td class="editable" data-id="<?php echo $row['id']; ?>" data-column="Contrat"><?php echo $row['Contrat']; ?></td>
-                    <td class="editable" data-id="<?php echo $row['id']; ?>" data-column="DomaineActivite"><?php echo $row['DomaineActivite']; ?></td>
+                    <td class="editable" data-id="<?php echo $row['id']; ?>" data-column="nomprenom"><?php echo $row['nomprenom']; ?></td>
+                    <td class="editable" data-id="<?php echo $row['id']; ?>" data-column="societe"><?php echo $row['societe']; ?></td>
+                    <td class="editable" data-id="<?php echo $row['id']; ?>" data-column="pays"><?php echo $row['pays']; ?></td>
+                    <td class="editable" data-id="<?php echo $row['id']; ?>" data-column="Concontrattrat"><?php echo $row['contrat']; ?></td>
+                    <td class="editable" data-id="<?php echo $row['id']; ?>" data-column="domaineactivite"><?php echo $row['domaineactivite']; ?></td>
                 </tr>
             <?php } ?>
         </tbody>

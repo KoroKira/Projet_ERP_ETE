@@ -262,7 +262,7 @@ if (!isset($_SESSION['utilisateur'])) {
                 $column = $_POST['column'];
                 $value = $_POST['value'];
 
-                $query = "UPDATE MaTable SET $column = :value WHERE id = :id";
+                $query = "UPDATE matable SET $column = :value WHERE id = :id";
                 $stmt = $pdo->prepare($query);
                 $stmt->bindParam(':value', $value);
                 $stmt->bindParam(':id', $id);
@@ -274,12 +274,12 @@ if (!isset($_SESSION['utilisateur'])) {
                 $accesRequis = $_POST['acces']; // Récupérer l'accréditation requise depuis la requête
 
                 // Effectuer la vérification de l'accréditation
-                if ($_SESSION['Acces'] !== $accesRequis) {
+                if ($_SESSION['acces'] !== $accesRequis) {
                     echo "Erreur : Vous n'avez pas les autorisations requises pour supprimer les données.";
                     exit();
                 }
 
-                $query = "DELETE FROM MaTable WHERE id = :id";
+                $query = "DELETE FROM matable WHERE id = :id";
                 $stmt = $pdo->prepare($query);
                 $stmt->bindParam(':id', $id);
                 $stmt->execute();
@@ -287,7 +287,7 @@ if (!isset($_SESSION['utilisateur'])) {
                 echo "Données supprimées avec succès!";
             }
 
-            $query = "SELECT * FROM MaTable";
+            $query = "SELECT * FROM matable";
             $stmt = $pdo->prepare($query);
             $stmt->execute();
             $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
@@ -329,11 +329,11 @@ if (!isset($_SESSION['utilisateur'])) {
                     <td class="editable" data-id="<?php echo $row['id']; ?>" data-column="year"><?php echo $row['year']; ?></td>
                     <td class="editable" data-id="<?php echo $row['id']; ?>" data-column="country"><?php echo $row['country']; ?></td>
                     <td class="editable" data-id="<?php echo $row['id']; ?>" data-column="status"><?php echo $row['status']; ?></td>
-                    <td class="editable" data-id="<?php echo $row['id']; ?>" data-column="statusDate"><?php echo $row['statusDate']; ?></td>
+                    <td class="editable" data-id="<?php echo $row['id']; ?>" data-column="statusdate"><?php echo $row['statusdate']; ?></td>
                     <td class="editable" data-id="<?php echo $row['id']; ?>" data-column="number"><?php echo $row['number']; ?></td>
                     <td class="editable" data-id="<?php echo $row['id']; ?>" data-column="client"><?php echo $row['client']; ?></td>
                     <td class="editable" data-id="<?php echo $row['id']; ?>" data-column="contact"><?php echo $row['contact']; ?></td>
-                    <td class="editable" data-id="<?php echo $row['id']; ?>" data-column="projectName"><?php echo $row['projectName']; ?></td>
+                    <td class="editable" data-id="<?php echo $row['id']; ?>" data-column="projectname"><?php echo $row['projectname']; ?></td>
                     <td class="editable" data-id="<?php echo $row['id']; ?>" data-column="referrer"><?php echo $row['referrer']; ?></td>
                     <td class="editable" data-id="<?php echo $row['id']; ?>" data-column="partner1"><?php echo $row['partner1']; ?></td>
                     <td class="editable" data-id="<?php echo $row['id']; ?>" data-column="partner2"><?php echo $row['partner2']; ?></td>
@@ -342,11 +342,11 @@ if (!isset($_SESSION['utilisateur'])) {
                     <td class="editable" data-id="<?php echo $row['id']; ?>" data-column="duration"><?php echo $row['duration']; ?></td>
                     <td class="editable" data-id="<?php echo $row['id']; ?>" data-column="amount"><?php echo $row['amount']; ?></td>
                     <td class="editable" data-id="<?php echo $row['id']; ?>" data-column="probability"><?php echo $row['probability']; ?></td>
-                    <td class="editable" data-id="<?php echo $row['id']; ?>" data-column="orderDate"><?php echo $row['orderDate']; ?></td>
-                    <td class="editable" data-id="<?php echo $row['id']; ?>" data-column="potentialRevenue"><?php echo $row['potentialRevenue']; ?></td>
-                    <td class="editable" data-id="<?php echo $row['id']; ?>" data-column="additionalInfo"><?php echo $row['additionalInfo']; ?></td>
+                    <td class="editable" data-id="<?php echo $row['id']; ?>" data-column="orderdate"><?php echo $row['orderdate']; ?></td>
+                    <td class="editable" data-id="<?php echo $row['id']; ?>" data-column="potentialrevenue"><?php echo $row['potentialrevenue']; ?></td>
+                    <td class="editable" data-id="<?php echo $row['id']; ?>" data-column="additionalinfo"><?php echo $row['additionalinfo']; ?></td>
                     <td>
-                        <?php if ($_SESSION['Acces'] !== "Lambda") { ?>
+                        <?php if ($_SESSION['acces'] !== "Lambda") { ?>
                             <button class="delete-button" onclick="deleteRow('<?php echo $row['id']; ?>', '<?php echo $row['accreditation']; ?>')">
                                 <i class="fas fa-trash-alt"></i> <!-- Add trash bin icon -->
                             </button>
@@ -420,7 +420,7 @@ if (!isset($_SESSION['utilisateur'])) {
         }
 
         function deleteRow(id, accreditation) {
-            const Acces = "<?php echo $_SESSION['Acces']; ?>";
+            const Acces = "<?php echo $_SESSION['acces']; ?>";
 
             if (Acces === "Lambda") {
                 showModal("Vous n'avez pas les droits suffisants pour supprimer une ligne. Veuillez contacter un administrateur.");
@@ -495,7 +495,7 @@ if (!isset($_SESSION['utilisateur'])) {
                 $column = $_POST['column'];
                 $value = $_POST['value'];
 
-                $query = "UPDATE TaTable SET $column = :value WHERE id = :id";
+                $query = "UPDATE tatable SET $column = :value WHERE id = :id";
                 $stmt = $pdo->prepare($query);
                 $stmt->bindParam(':value', $value);
                 $stmt->bindParam(':id', $id);
@@ -505,7 +505,7 @@ if (!isset($_SESSION['utilisateur'])) {
             } elseif (isset($_POST['delete'])) {
                 $id = $_POST['id'];
 
-                $query = "DELETE FROM TaTable WHERE id = :id";
+                $query = "DELETE FROM tatable WHERE id = :id";
                 $stmt = $pdo->prepare($query);
                 $stmt->bindParam(':id', $id);
                 $stmt->execute();
@@ -514,7 +514,7 @@ if (!isset($_SESSION['utilisateur'])) {
             }
         }
 
-        $query = "SELECT * FROM TaTable";
+        $query = "SELECT * FROM tatable";
         $stmt = $pdo->prepare($query);
         $stmt->execute();
         $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
@@ -542,14 +542,14 @@ if (!isset($_SESSION['utilisateur'])) {
                 <tr>
                     <td><?php echo $row['id']; ?></td>
                     <td class="editable" data-id="<?php echo $row['id']; ?>" data-column="pays"><?php echo $row['pays']; ?></td>
-                    <td class="editable" data-id="<?php echo $row['id']; ?>" data-column="CLIENT"><?php echo $row['CLIENT']; ?></td>
+                    <td class="editable" data-id="<?php echo $row['id']; ?>" data-column="client"><?php echo $row['client']; ?></td>
                     <td class="editable" data-id="<?php echo $row['id']; ?>" data-column="label"><?php echo $row['label']; ?></td>
                     <td class="editable" data-id="<?php echo $row['id']; ?>" data-column="detail"><?php echo $row['detail']; ?></td>
                     <td class="editable" data-id="<?php echo $row['id']; ?>" data-column="intermediary"><?php echo $row['intermediary']; ?></td>
-                    <td class="editable" data-id="<?php echo $row['id']; ?>" data-column="DateOffre"><?php echo $row['DateOffre']; ?></td>
-                    <td class="editable" data-id="<?php echo $row['id']; ?>" data-column="montantHT"><?php echo $row['montantHT']; ?></td>
+                    <td class="editable" data-id="<?php echo $row['id']; ?>" data-column="dateoffre"><?php echo $row['dateoffre']; ?></td>
+                    <td class="editable" data-id="<?php echo $row['id']; ?>" data-column="montantht"><?php echo $row['montantht']; ?></td>
                     <td>
-                        <?php if ($_SESSION['Acces'] !== "Lambda") { ?>
+                        <?php if ($_SESSION['acces'] !== "Lambda") { ?>
                             <button class="delete-button" onclick="deleteRow('<?php echo $row['id']; ?>')">
                                 <i class="fas fa-trash-alt"></i> <!-- Add trash bin icon -->
                             </button>
@@ -675,7 +675,7 @@ if (!isset($_SESSION['utilisateur'])) {
                 $column = $_POST['column'];
                 $value = $_POST['value'];
 
-                $query = "UPDATE SaTable SET $column = :value WHERE id = :id";
+                $query = "UPDATE satable SET $column = :value WHERE id = :id";
                 $stmt = $pdo->prepare($query);
                 $stmt->bindParam(':value', $value);
                 $stmt->bindParam(':id', $id);
@@ -685,7 +685,7 @@ if (!isset($_SESSION['utilisateur'])) {
             } elseif (isset($_POST['delete'])) {
                 $id = $_POST['id'];
 
-                $query = "DELETE FROM SaTable WHERE id = :id";
+                $query = "DELETE FROM satable WHERE id = :id";
                 $stmt = $pdo->prepare($query);
                 $stmt->bindParam(':id', $id);
                 $stmt->execute();
@@ -694,7 +694,7 @@ if (!isset($_SESSION['utilisateur'])) {
             }
         }
 
-        $query = "SELECT * FROM SaTable";
+        $query = "SELECT * FROM satable";
         $stmt = $pdo->prepare($query);
         $stmt->execute();
         $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
@@ -719,13 +719,13 @@ if (!isset($_SESSION['utilisateur'])) {
             <?php foreach ($result as $row) { ?>
                 <tr>
                     <td><?php echo $row['id']; ?></td>
-                    <td class="editable" data-id="<?php echo $row['id']; ?>" data-column="NomPrenom"><?php echo $row['NomPrenom']; ?></td>
-                    <td class="editable" data-id="<?php echo $row['id']; ?>" data-column="Societe"><?php echo $row['Societe']; ?></td>
-                    <td class="editable" data-id="<?php echo $row['id']; ?>" data-column="Pays"><?php echo $row['Pays']; ?></td>
-                    <td class="editable" data-id="<?php echo $row['id']; ?>" data-column="Contrat"><?php echo $row['Contrat']; ?></td>
-                    <td class="editable" data-id="<?php echo $row['id']; ?>" data-column="DomaineActivite"><?php echo $row['DomaineActivite']; ?></td>
+                    <td class="editable" data-id="<?php echo $row['id']; ?>" data-column="nomprenom"><?php echo $row['nomprenom']; ?></td>
+                    <td class="editable" data-id="<?php echo $row['id']; ?>" data-column="societe"><?php echo $row['societe']; ?></td>
+                    <td class="editable" data-id="<?php echo $row['id']; ?>" data-column="pays"><?php echo $row['pays']; ?></td>
+                    <td class="editable" data-id="<?php echo $row['id']; ?>" data-column="contrat"><?php echo $row['contrat']; ?></td>
+                    <td class="editable" data-id="<?php echo $row['id']; ?>" data-column="domaineactivite"><?php echo $row['domaineactivite']; ?></td>
                     <td>
-                        <?php if ($_SESSION['Acces'] !== "Lambda") { ?>
+                        <?php if ($_SESSION['acces'] !== "Lambda") { ?>
                             <button class="delete-button" onclick="deleteRow('<?php echo $row['id']; ?>')">
                                 <i class="fas fa-trash-alt"></i> <!-- Add trash bin icon -->
                             </button>

@@ -474,13 +474,13 @@ table thead th {
 <div class="form-wrapper" id="formWrapper">
   <form id="AjoutTexte" class="show" method="POST" action="<?php echo $_SERVER['PHP_SELF']; ?>">
     <div style="display: flex; flex-direction: column; align-items: flex-start;">
-      <label for="DateHeure" style="margin-bottom: 10px;">Date et Heure (JJ/MM/AAAA HH:MM) :</label>
-      <input type="text" id="DateHeure" name="DateHeure" required style="width: 100%;">
+      <label for="dateheure" style="margin-bottom: 10px;">Date et Heure (JJ/MM/AAAA HH:MM) :</label>
+      <input type="text" id="dateheure" name="dateheure" required style="width: 100%;">
     </div>
 
     <div style="display: flex; flex-direction: column; align-items: flex-start; margin-top: 20px;">
-      <label for="text" style="margin-bottom: 10px;">Texte :</label>
-      <textarea id="text" name="text" required style="width: 100%; height: 200px;"></textarea>
+      <label for="texte" style="margin-bottom: 10px;">Texte :</label>
+      <textarea id="text" name="texte" required style="width: 100%; height: 200px;"></textarea>
     </div>
 
     <input type="submit" value="Créer une nouvelle entrée texte" class="center-button" style="margin-top: 20px;">
@@ -514,11 +514,11 @@ if (pg_num_rows($result) > 0) {
     echo "<tbody>";
 
     while ($row = pg_fetch_assoc($result)) {
-        $dateHeure = $row['date_time'];
+        $dateheure = $row['date_time'];
         $texte = $row['text_content'];
-        $userID = $row['user_id'];
+        $user_id = $row['user_id'];
 
-        echo "<tr><td>$dateHeure</td><td>$texte</td><td>$userID</td></tr>";
+        echo "<tr><td>$dateheure</td><td>$texte</td><td>$user_id</td></tr>";
     }
 
     echo "</tbody>";
@@ -530,15 +530,15 @@ if (pg_num_rows($result) > 0) {
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     // Vérifier si les données du formulaire sont présentes
-    if (isset($_POST['DateHeure']) && isset($_POST['text'])) {
+    if (isset($_POST['dateheure']) && isset($_POST['text'])) {
         // Récupérer les valeurs du formulaire
-        $dateHeure = $_POST['DateHeure'];
-        $texte = $_POST['text'];
+        $dateheure = $_POST['dateheure'];
+        $texte = $_POST['texte'];
 
         // Utiliser une requête préparée pour sécuriser les données
         $insertQuery = "INSERT INTO user_data (date_time, text_content, user_id, file_name) VALUES ($1, $2, $3, '0')";
         $stmt = pg_prepare($conn, "insert_query", $insertQuery);
-        $result = pg_execute($conn, "insert_query", array($dateHeure, $texte, $_SESSION['utilisateur']));
+        $result = pg_execute($conn, "insert_query", array($dateheure, $texte, $_SESSION['utilisateur']));
 
         // Exécuter la requête d'insertion
         if ($result) {

@@ -17,14 +17,14 @@ try {
     $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
     // Récupérer l'accréditation de l'utilisateur depuis la table "connexion"
-    $query = "SELECT Acces FROM Connexion WHERE utilisateur = :utilisateur";
+    $query = "SELECT accex FROM connexion WHERE utilisateur = :utilisateur";
     $stmt = $pdo->prepare($query);
     $stmt->bindParam(':utilisateur', $_SESSION['utilisateur']);
     $stmt->execute();
     $result = $stmt->fetch(PDO::FETCH_ASSOC);
 
     // Vérifier l'accréditation de l'utilisateur
-    if ($result['Acces'] !== "Admin") {
+    if ($result['acces'] !== "Admin") {
         $isAdmin = false;
     } else {
         $isAdmin = true;

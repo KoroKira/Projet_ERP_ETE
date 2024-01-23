@@ -207,10 +207,10 @@ $password = "root";
 <h2>Ajouter du texte</h2>
 
 <form id="AjoutTexte" method="POST" action="<?php echo $_SERVER['PHP_SELF']; ?>">
-    <label for="DateHeure">Date et Heure (JJ/MM/AAAA HH:MM) :</label>
-    <input type="text" id="DateHeure" name="DateHeure" required>
-    <label for="text">Texte :</label>
-    <textarea id="text" name="text" required></textarea> 
+    <label for="dateheure">Date et Heure (JJ/MM/AAAA HH:MM) :</label>
+    <input type="text" id="dateheure" name="dateheure" required>
+    <label for="texte">Texte :</label>
+    <textarea id="text" name="texte" required></textarea> 
     <input type="submit" value="Créer une nouvelle entrée texte" class="center-button">
 </form>
 
@@ -279,10 +279,10 @@ if (pg_num_rows($result) > 0) {
     echo "<tr><th>Date et heure</th><th>Texte</th></tr>";
 
     while ($row = pg_fetch_assoc($result)) {
-        $dateHeure = $row['date_time'];
+        $dateheure = $row['date_time'];
         $texte = $row['text_content'];
 
-        echo "<tr><td>$dateHeure</td><td>$texte</td></tr>";
+        echo "<tr><td>$dateheure</td><td>$texte</td></tr>";
     }
 
     echo "</table>";
