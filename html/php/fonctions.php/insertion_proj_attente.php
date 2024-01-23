@@ -39,7 +39,7 @@ try {
   $stmt->bindParam(':detail', $detail);
   $stmt->bindParam(':intermediary', $intermediary);
   $stmt->bindParam(':dateoffre', $dateoffre);
-  $stmt->bindParam(':montmontanthtamontanthtntHT', $montantht);
+  $stmt->bindParam(':montantht', $montantht);
 
   // Execute the INSERT statement for TaTable
   $stmt->execute();
