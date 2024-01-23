@@ -16,7 +16,7 @@ try {
 
     // Retrieve the data from the AJAX request
     $DateHeure = $_POST['DateHeure'];
-    $text = $_POST['text'];
+    $texte = $_POST['texte'];
 
     // Validate the 'DateHeure' field
     if (empty($DateHeure)) {
@@ -24,13 +24,13 @@ try {
     }
 
     // Prepare the INSERT statement
-    $query = "INSERT INTO user_data (user_id, file_name, date_time, text_content) VALUES (:user_id, '', :DateHeure, :text)";
+    $query = "INSERT INTO user_data (user_id, file_name, date_time, text_content) VALUES (:user_id, '', :DateHeure, :texte)";
     $stmt = $pdo->prepare($query);
 
     // Bind the values to the placeholders
     $stmt->bindParam(':user_id', $user_id);
     $stmt->bindParam(':DateHeure', $DateHeure);
-    $stmt->bindParam(':text', $text);
+    $stmt->bindParam(':texte', $texte);
 
     // Execute the INSERT statement
     $stmt->execute();
