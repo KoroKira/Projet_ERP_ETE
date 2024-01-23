@@ -191,7 +191,7 @@ try {
 
   <?php
 		$dsn = "pgsql:host=localhost;dbname=bddcrmete;options='--client_encoding=UTF8'";
-		$user = "postgre";
+		$user = "postgres";
 		$password = "root";
 
     try {
