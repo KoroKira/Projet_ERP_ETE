@@ -30,7 +30,7 @@ try {
   $duration = $_POST['duration'];
   $amount = $_POST['amount'];
   $probability = $_POST['probability'];
-  $orderDate = $_POST['orderDate'];
+  $orderdate = $_POST['orderdate'];
   $potentialrevenue = $_POST['potentialrevenue'];
   $additionalinfo = $_POST['additionalinfo'];
 
