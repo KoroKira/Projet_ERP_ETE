@@ -17,7 +17,7 @@ try {
     $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
     // Récupérer l'accréditation de l'utilisateur depuis la table "connexion"
-    $query = "SELECT accex FROM connexion WHERE utilisateur = :utilisateur";
+    $query = "SELECT acces FROM connexion WHERE utilisateur = :utilisateur";
     $stmt = $pdo->prepare($query);
     $stmt->bindParam(':utilisateur', $_SESSION['utilisateur']);
     $stmt->execute();
