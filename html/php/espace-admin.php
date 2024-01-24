@@ -28,7 +28,7 @@ try {
             $column = $_POST['column'];
             $value = $_POST['value'];
 
-            $query = "UPDATE Connexion SET $column = :value WHERE id = :id";
+            $query = "UPDATE connexion SET $column = :value WHERE id = :id";
             $stmt = $pdo->prepare($query);
             $stmt->bindParam(':value', $value);
             $stmt->bindParam(':id', $id);
@@ -38,16 +38,29 @@ try {
         } elseif (isset($_POST['delete'])) {
             $id = $_POST['id'];
 
-            $query = "DELETE FROM Connexion WHERE id = :id";
+            $query = "DELETE FROM connexion WHERE id = :id";
             $stmt = $pdo->prepare($query);
             $stmt->bindParam(':id', $id);
             $stmt->execute();
 
             echo "Données supprimées avec succès!";
+        } elseif (isset($_POST['ajouterCompte'])) {
+            $utilisateur = $_POST['utilisateur'];
+            $motdepasse = $_POST['motdepasse'];
+            $acces = $_POST['acces'];
+
+            $query = "INSERT INTO connexion (utilisateur, motdepasse, acces) VALUES (:utilisateur, :motdepasse, :acces)";
+            $stmt = $pdo->prepare($query);
+            $stmt->bindParam(':utilisateur', $utilisateur);
+            $stmt->bindParam(':motdepasse', $motdepasse);
+            $stmt->bindParam(':acces', $acces);
+            $stmt->execute();
+
+            echo "Compte ajouté avec succès!";
         }
     }
 
-    $query = "SELECT * FROM Connexion";
+    $query = "SELECT * FROM connexion";
     $stmt = $pdo->prepare($query);
     $stmt->execute();
     $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
@@ -92,7 +105,7 @@ try {
         </div>
     </form>
 
-    <button id="valider" style="display: block; margin: 0 auto;" class="btn btn-primary">Créer un nouveau compte utilisateur</button>
+    <button id="valider" style="display: block; margin: 0 auto;" class="btn btn-primary" onclick="Datainserer()">Créer un nouveau compte utilisateur</button>
 </div>
 
 <div class="table-container mt-3">
@@ -127,7 +140,31 @@ try {
 <button id="BoutonDeValidation" onclick="ValidationModifications()" class="btn btn-primary mt-3">Valider les modifications</button>
 
 <script>
-    // Ajoutez un gestionnaire d'événement pour les cellules éditables
+  function Datainserer() {
+    const utilisateur = document.getElementById('utilisateur').value;
+    const motdepasse = document.getElementById('motdepasse').value;
+    const acces = document.getElementById('acces').value;
+
+    const formData = new FormData();
+    formData.append('utilisateur', utilisateur);
+    formData.append('motdepasse', motdepasse);
+    formData.append('acces', acces);
+    formData.append('ajouterCompte', 'true'); // Ajoutez le drapeau ajouterCompte
+
+    fetch('espace-admin.php', { // Pointez vers le fichier espace-admin.php
+        method: 'POST',
+        body: formData
+    })
+    .then(response => response.text())
+    .then(result => {
+        console.log(result);
+        alert('Compte ajouté avec succès !');
+        location.reload(); // Rafraîchir la page pour refléter les modifications
+    })
+    .catch(error => console.log(error));
+  }
+
+    // Ajoutez un gestionnaire d'événements pour les cellules éditables
     const CelluleEditableBis = document.querySelectorAll('.editable');
     CelluleEditableBis.forEach(cell => {
         cell.addEventListener('click', () => {
@@ -140,7 +177,7 @@ try {
                 formData.append('id', id);
                 formData.append('column', column);
                 formData.append('value', value);
-                formData.append('submit', 'true'); // Add the submit flag
+                formData.append('submit', 'true'); // Ajoutez le drapeau submit
 
                 fetch('espace-admin.php', {
                     method: 'POST',
@@ -156,9 +193,9 @@ try {
         });
     });
 
-    // Function to validate and save the modifications
+    // Fonction pour valider et enregistrer les modifications
     function ValidationModifications() {
-        // Collect all the modified data from the table
+        // Collecter toutes les données modifiées de la table
         const modifiedData = [];
         CelluleEditableBis.forEach(cell => {
             const id = cell.getAttribute('data-id');
@@ -168,7 +205,7 @@ try {
             modifiedData.push({ id, column, value });
         });
 
-        // Send the modified data to the server
+        // Envoyer les données modifiées au serveur
         fetch('fonctions.php/save_modif_connexion.php', {
             method: 'POST',
             headers: {
@@ -190,7 +227,7 @@ try {
         if (confirmation) {
             const formData = new FormData();
             formData.append('id', id);
-            formData.append('delete', 'true'); // Add the delete flag
+            formData.append('delete', 'true'); // Ajoutez le drapeau delete
 
             fetch('espace-admin.php', {
                 method: 'POST',
@@ -200,7 +237,7 @@ try {
             .then(result => {
                 console.log(result);
                 alert('Ligne retirée avec succès !');
-                location.reload(); // Refresh the page to reflect the changes
+                location.reload(); // Rafraîchir la page pour refléter les modifications
             })
             .catch(error => console.log(error));
         }
