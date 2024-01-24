@@ -14,237 +14,6 @@ if ($acces !== 'Admin') {
     exit();
 }
 
-?>
-
-
-
-<!DOCTYPE html>
-<html>
-<head>
-  <meta charset="UTF-8">
-  <title>Administration</title>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"> <!-- Add Font Awesome CSS -->
-  <style>
-    body {
-      background-image: url('../image/fondbleu.jpg');
-      background-repeat: no-repeat;
-      background-size: cover;
-      background-position: center center;
-      height: 100vh; /* Ajout de la propriété height */
-      background-attachment: fixed; /* Fixe l'image de fond */
-    }
-
-    h1 {
-      color: #c1272d;
-      font-size: 36px;
-      text-align: center;
-      text-shadow: 2px 2px 4px #ffffff;
-      margin-top: 50px;
-    }
-
-    h2 {
-      color: #c1272d;
-      font-size: 24px;
-      text-align: center;
-      text-shadow: 2px 2px 4px #ffffff;
-      margin-top: 20px;
-    }
-
-    form {
-      background-color: #ffffff;
-      border-radius: 5px;
-      margin: 20px auto;
-      padding: 20px;
-      width: 800px;
-      box-sizing: border-box;
-    }
-
-    form h2 {
-      color: #c1272d;
-      font-size: 24px;
-      text-align: center;
-      margin-top: 0;
-    }
-
-    table {
-      background-color: #ffffff;
-      border-radius: 5px;
-      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-      margin: 20px auto;
-      padding: 20px;
-      width: 100%;
-      table-layout: fixed;
-    }
-
-    table th {
-      background-color: #c1272d;
-      color: #ffffff;
-      font-size: 14px;
-      font-weight: bold;
-      padding: 10px;
-      text-align: left;
-    }
-
-    table td {
-      border-bottom: 1px solid #dddddd;
-      padding: 10px;
-      word-wrap: break-word;
-      max-width: 150px;
-    }
-
-    table td:first-child {
-      font-weight: bold;
-      white-space: nowrap;
-    }
-
-    button {
-      background-color: #c1272d;
-      border: none;
-      border-radius: 5px;
-      color: #ffffff;
-      cursor: pointer;
-      font-size: 16px;
-      padding: 10px 20px;
-    }
-
-    button:hover {
-      background-color: #a12026;
-    }
-
-    label {
-      color: #c1272d;
-      display: block;
-      font-size: 14px;
-      margin-top: 10px;
-    }
-
-    input[type="text"],
-    input[type="number"] {
-      border: 1px solid #dddddd;
-      border-radius: 5px;
-      box-sizing: border-box;
-      font-size: 14px;
-      padding: 8px;
-      width: 100%;
-    }
-
-    input[type="submit"] {
-      background-color: #c1272d;
-      border: none;
-      border-radius: 5px;
-      color: #ffffff;
-      cursor: pointer;
-      font-size: 16px;
-      padding: 10px 20px;
-    }
-
-    input[type="submit"]:hover {
-      background-color: #a12026;
-    }
-
-    p.small-text {
-      color: green;
-      text-align: center;
-      text-decoration: underline;
-      text-shadow: -2px -2px 4px white, 2px -2px 4px white, -2px 2px 4px white, 2px 2px 4px white;
-    }
-
-    p.small-text a {
-      color: green;
-      text-align: center;
-      text-decoration: underline;
-      text-shadow: -2px -2px 4px white, 2px -2px 4px white, -2px 2px 4px white, 2px 2px 4px white;
-    }
-
-    .delete-button {
-            background: none;
-            border: none;
-            color: #c1272d;
-            cursor: pointer;
-            font-size: 16px;
-            transition: background-color 0.3s, color 0.3s; /* Add transition effect */
-        }
-
-        .delete-button:hover {
-            background-color: #c1272d; /* Change background color on hover */
-            color: #ffffff; /* Change text color on hover */
-    }
-
-        /* Styles pour les conteneurs des tableaux */
-    .table-container {
-      max-height: 300px; /* Limite de 10 lignes visuellement */
-      overflow-y: auto; /* Barre de défilement verticale */
-    }
-
-    table thead th {
-        position: sticky; /* Rend l'en-tête fixe */
-        top: 0; /* Positionne l'en-tête en haut du conteneur */
-        z-index: 1; /* Assure que l'en-tête reste au-dessus du contenu du tableau */
-      }
-
-  </style>
-  <link rel="stylesheet" type="text/css" href="../css/style.css">
-</head>
-<body>
-
-<h1>Espace administrateur</h1>
-
-
-<button onclick="location.href='modif_admin.php'">Modifier les données dans le CRM</button>
-<button onclick="location.href='gestion_textes_admin.php'">Accéder aux textes des utilisateurs et aux fichiers déposés - admin </button>
-
-
-
-<h2>Ajouter un compte</h2>
-
-
-<form id="AjoutCompte">
-  <label for="utilisateur">Utilisateur :</label>
-  <input type="text" id="utilisateur" name="utilisateur" required>
-  <br>
-  <label for="motdepasse">Mot de passe :</label>
-  <input type="text" id="motdepasse" name="motdepasse" required>
-  <label for="acces">Droit d'accès (mettre Admin ou Lambda) :</label>
-  <input type="text" id="acces" name="acces" required>
-</form>
-
-<button id="valider" style="display: block; margin: 0 auto;">Créer un nouveau compte utilisateur</button>
-
-
-
-<script>
-// Function to insert data into the database
-function Datainserer() {
-  // Retrieve the form data
-  const form = document.getElementById('AjoutCompte');
-  const formData = new FormData(form);
-
-  // Send an AJAX request to the PHP script
-  fetch('fonctions.php/insert_compte.php', {
-    method: 'POST',
-    body: formData
-  })
-    .then(response => response.text())
-    .then(result => {
-      console.log(result);
-      alert('Données insérées avec succès ! Rechargez la page pour voir les données dans le tableau en dessous');
-      form.reset(); // Reset the form after successful insertion
-    })
-    .catch(error => {
-      console.log(error);
-      alert('Erreurs durant le transfert, contactez votre administrateur/technicien/informaticien');
-    });
-}
-
-// Add an event listener to the transfer button
-document.getElementById('valider').addEventListener('click', function() {
-  Datainserer();
-});
-
-</script>
-
-
-<?php
 $dsn = "pgsql:host=localhost;dbname=bddcrmete;options='--client_encoding=UTF8'";
 $user = "postgres";
 $password = "root";
@@ -282,39 +51,80 @@ try {
     $stmt = $pdo->prepare($query);
     $stmt->execute();
     $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
+} catch (PDOException $e) {
+    echo "Erreur de requête : " . $e->getMessage();
+}
 ?>
 
-<h1>Liste comptes existants</h1>
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <meta charset="UTF-8">
+    <title>Administration</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link rel="stylesheet" type="text/css" href="../css/style.css">
+</head>
+<body>
 
-<div class="table-container">
-<table>
-    <thead>
-        <tr>
-            <th>ID</th>
-            <th>Utilisateur</th>
-            <th>Mot de passe</th>
-            <th>Accès</th>
-            <th>Actions</th>
-        </tr>
-    </thead>
-    <tbody>
-        <?php foreach ($result as $row) { ?>
-            <tr>
-                <td><?php echo $row['id']; ?></td>
-                <td class="editable" data-id="<?php echo $row['id']; ?>" data-column="utilisateur"><?php echo $row['utilisateur']; ?></td>
-                <td class="editable" data-id="<?php echo $row['id']; ?>" data-column="motdepasse"><?php echo $row['motdepasse']; ?></td>
-                <td class="editable" data-id="<?php echo $row['id']; ?>" data-column="acces"><?php echo $row['acces']; ?></td>
-                <td>
-                    <button class="delete-button" onclick="deleteRow(<?php echo $row['id']; ?>)" name="delete">
-                        <i class="fas fa-trash-alt"></i>
-                    </button>
-                </td>
-            </tr>
-        <?php } ?>
-    </tbody>
-</table>
+<h1 class="text-center mt-5">Espace administrateur</h1>
+
+<div class="d-flex justify-content-center mt-3">
+    <button onclick="location.href='modif_admin.php'" class="btn btn-primary me-2">Modifier les données dans le CRM</button>
+    <button onclick="location.href='gestion_textes_admin.php'" class="btn btn-primary">Accéder aux textes des utilisateurs et aux fichiers déposés - admin</button>
 </div>
-<button id="BoutonDeValidation" onclick="ValidationModifications()">Valider les modifications</button>
+
+<h2 class="text-center mt-3">Ajouter un compte</h2>
+
+<div class="container mt-3">
+    <form id="AjoutCompte">
+        <div class="mb-3">
+            <label for="utilisateur" class="form-label">Utilisateur :</label>
+            <input type="text" id="utilisateur" name="utilisateur" required class="form-control">
+        </div>
+        <div class="mb-3">
+            <label for="motdepasse" class="form-label">Mot de passe :</label>
+            <input type="text" id="motdepasse" name="motdepasse" required class="form-control">
+        </div>
+        <div class="mb-3">
+            <label for="acces" class="form-label">Droit d'accès (mettre Admin ou Lambda) :</label>
+            <input type="text" id="acces" name="acces" required class="form-control">
+        </div>
+    </form>
+
+    <button id="valider" style="display: block; margin: 0 auto;" class="btn btn-primary">Créer un nouveau compte utilisateur</button>
+</div>
+
+<div class="table-container mt-3">
+    <table class="table">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Utilisateur</th>
+                <th>Mot de passe</th>
+                <th>Accès</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            <?php foreach ($result as $row) { ?>
+                <tr>
+                    <td><?php echo $row['id']; ?></td>
+                    <td class="editable" data-id="<?php echo $row['id']; ?>" data-column="utilisateur"><?php echo $row['utilisateur']; ?></td>
+                    <td class="editable" data-id="<?php echo $row['id']; ?>" data-column="motdepasse"><?php echo $row['motdepasse']; ?></td>
+                    <td class="editable" data-id="<?php echo $row['id']; ?>" data-column="acces"><?php echo $row['acces']; ?></td>
+                    <td>
+                        <button class="delete-button" onclick="deleteRow(<?php echo $row['id']; ?>)" name="delete">
+                            <i class="fas fa-trash-alt"></i>
+                        </button>
+                    </td>
+                </tr>
+            <?php } ?>
+        </tbody>
+    </table>
+</div>
+
+<button id="BoutonDeValidation" onclick="ValidationModifications()" class="btn btn-primary mt-3">Valider les modifications</button>
 
 <script>
     // Ajoutez un gestionnaire d'événement pour les cellules éditables
@@ -395,22 +205,9 @@ try {
             .catch(error => console.log(error));
         }
     }
-
 </script>
 
-
-
-<?php } catch (PDOException $e) {
-    echo "Erreur de requête : " . $e->getMessage();
-} ?>
-
-
-
-
-
-
-
-<p class="small-text">
+<p class="small-text mt-3">
   <a href="accueil.php">Retour à la page d'accueil</a>
 </p>
 

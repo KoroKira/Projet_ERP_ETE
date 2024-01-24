@@ -24,11 +24,7 @@ try {
     $result = $stmt->fetch(PDO::FETCH_ASSOC);
 
     // Vérifier l'accréditation de l'utilisateur
-    if ($result['acces'] !== "Admin") {
-        $isAdmin = false;
-    } else {
-        $isAdmin = true;
-    }
+    $isAdmin = ($result['acces'] === "Admin");
 } catch (PDOException $e) {
     echo "Erreur de connexion à la base de données : " . $e->getMessage();
     exit();
@@ -38,80 +34,48 @@ try {
 <!DOCTYPE html>
 <html>
 <head>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
   <meta charset="UTF-8">
   <title>Accueil</title>
-  <style>
-    body {
-      background-image: url('../image/fondbleu.jpg');
-      background-repeat: no-repeat;
-      background-size: cover;
-      background-position: center center;
-      height: 100vh; /* Ajout de la propriété height */
-    }
-
-    h1 {
-      color: #c1272d;
-      font-size: 36px;
-      text-align: center;
-      text-shadow: 2px 2px 4px #ffffff; /* Modifié : ombre blanche */
-      margin-top: 50px;
-    }
-
-    button {
-      background-color: #c1272d;
-      border: none;
-      border-radius: 5px;
-      color: #ffffff;
-      cursor: pointer;
-      font-size: 16px;
-      padding: 10px 20px;
-      display: block;
-      margin: 20px auto;
-    }
-
-    button:hover {
-      background-color: #a12026;
-    }
-  </style>
   <link rel="stylesheet" type="text/css" href="../css/style.css">
 </head>
-<body>
-  <h1>Accueil</h1>
+<body class="bg-secondary">
 
-  <button onclick="location.href='client.php'">Voir les données des CRM</button>
+  <div class="container mt-5">
+    <h1 class="text-danger text-center">Accueil</h1>
 
-  <button onclick="location.href='admin.php'">Ajouter les données des CRM</button>
+    <button class="btn btn-danger d-block mx-auto mb-4" onclick="location.href='client.php'">Voir les données des CRM</button>
 
-  <?php if ($isAdmin) { ?>
-    <button onclick="location.href='modif_admin.php'">Modifier les données du CRM - Administrateur</button>
+    <button class="btn btn-danger d-block mx-auto mb-4" onclick="location.href='admin.php'">Ajouter les données des CRM</button>
+
+    <?php if ($isAdmin) { ?>
+      <button class="btn btn-danger d-block mx-auto mb-4" onclick="location.href='modif_admin.php'">Modifier les données du CRM - Administrateur</button>
     <?php } ?>
 
-  <?php if ($isAdmin === false ) { ?>
-    <button onclick="location.href='modif.php'">Modifier les données du CRM</button>
-  <?php } ?>
+    <?php if (!$isAdmin) { ?>
+      <button class="btn btn-danger d-block mx-auto mb-4" onclick="location.href='modif.php'">Modifier les données du CRM</button>
+    <?php } ?>
 
-  <button onclick="location.href='intermediary.php'">Gérer les intermédiaires</button>
+    <button class="btn btn-danger d-block mx-auto mb-4" onclick="location.href='intermediary.php'">Gérer les intermédiaires</button>
 
+    <button class="btn btn-danger d-block mx-auto mb-4" onclick="location.href='espace-lambda.php'">Ajouter des comptes-rendus, des informations, des fichiers etc...</button>
 
-  <button onclick="location.href='espace-lambda.php'">Ajouter des comptes-rendus, des informations, des fichiers etc...</button>  
+    <?php if ($isAdmin) { ?>
+      <button class="btn btn-danger d-block mx-auto mb-4" onclick="location.href='espace-admin.php'">Accéder à l'espace de gestion - Administrateur</button>
+    <?php } ?>
 
-  <?php if ($isAdmin) { ?>
-    <button onclick="location.href='espace-admin.php'">Accéder à l'espace de gestion - Administrateur</button>
-  <?php } ?>
+    <?php if ($isAdmin) { ?>
+      <button class="btn btn-danger d-block mx-auto mb-4" onclick="location.href='gestion_textes_admin.php'">Accéder aux textes des utilisateurs - Administrateur </button>
+    <?php } ?>
 
-  <?php if ($isAdmin) { ?>
-    <button onclick="location.href='gestion_textes_admin.php'">Accéder aux textes des utilisateurs - Administrateur </button>
-  <?php } ?>
-                       
-  
-  
-  
-  <button onclick="location.href='news.php'">Voir les DevLog du stagiaire, les nouveautés et ajouts qui vont arriver</button>
-  
-    <button onclick="location.href='ticket.php'">Envoyer un ticket</button>
+    <button class="btn btn-danger d-block mx-auto mb-4" onclick="location.href='news.php'">Voir les DevLog du stagiaire, les nouveautés et ajouts qui vont arriver</button>
 
-  <p class="small-text" style="text-align: center;">
-    <a href="../index.html">Se déconnecter</a>
-  </p>
+    <button class="btn btn-danger d-block mx-auto mb-4" onclick="location.href='ticket.php'">Envoyer un ticket</button>
+
+    <p class="small-text text-center">
+      <a href="../index.html" class="text-light">Se déconnecter</a>
+    </p>
+  </div>
+
 </body>
 </html>

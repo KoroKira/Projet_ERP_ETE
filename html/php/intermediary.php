@@ -46,158 +46,31 @@ try {
 ?>
 
 <!DOCTYPE html>
-<html>
+<html lang="fr">
 <head>
-  <meta charset="UTF-8">
-  <title>Intermédiaires</title>
-  <style>
-    body {
-      background-image: url('../image/fondbleu.jpg');
-      background-repeat: no-repeat;
-      background-size: cover;
-      background-position: center center;
-      height: 100vh; /* Ajout de la propriété height */
-      background-attachment: fixed; /* Fixe l'image de fond */
-    }
-
-    h1 {
-      color: #c1272d;
-      font-size: 36px;
-      text-align: center;
-      text-shadow: 2px 2px 4px #ffffff;
-      margin-top: 50px;
-    }
-
-    form {
-      background-color: #ffffff;
-      border-radius: 5px;
-      margin: 20px auto;
-      padding: 20px;
-      width: 400px;
-      box-sizing: border-box;
-    }
-
-    label {
-      color: #c1272d;
-      display: block;
-      font-size: 14px;
-      margin-top: 10px;
-    }
-
-    input[type="text"],
-    input[type="number"] {
-      border: 1px solid #dddddd;
-      border-radius: 5px;
-      box-sizing: border-box;
-      font-size: 14px;
-      padding: 8px;
-      width: 100%;
-    }
-
-    input[type="submit"] {
-      background-color: #c1272d;
-      border: none;
-      border-radius: 5px;
-      color: #ffffff;
-      cursor: pointer;
-      font-size: 16px;
-      padding: 10px 20px;
-    }
-
-    input[type="submit"]:hover {
-      background-color: #a12026;
-    }
-
-    p.small-text {
-      color: green;
-      text-align: center;
-      text-decoration: underline;
-      text-shadow: -2px -2px 4px white, 2px -2px 4px white, -2px 2px 4px white, 2px 2px 4px white;
-    }
-
-    p.small-text a {
-      color: green;
-      text-align: center;
-      text-decoration: underline;
-      text-shadow: -2px -2px 4px white, 2px -2px 4px white, -2px 2px 4px white, 2px 2px 4px white;
-    }
-
-    textarea {
-      border: 1px solid #dddddd;
-      border-radius: 5px;
-      box-sizing: border-box;
-      font-size: 14px;
-      padding: 8px;
-      width: 100%;
-      height: 200px; /* Modifier la taille de la zone de texte */
-    }
-
-    table {
-      background-color: #ffffff;
-      border-radius: 5px;
-      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-      margin: 20px auto;
-      padding: 20px;
-      width: 100%;
-      table-layout: fixed;
-    }
-
-    table th {
-      background-color: #c1272d;
-      color: #ffffff;
-      font-size: 14px;
-      font-weight: bold;
-      padding: 10px;
-      text-align: left;
-    }
-
-    table td {
-      border-bottom: 1px solid #dddddd;
-      padding: 10px;
-      word-wrap: break-word;
-      max-width: 150px;
-    }
-
-    table td:first-child {
-      font-weight: bold;
-      white-space: nowrap;
-    }
-
-        /* Styles pour les conteneurs des tableaux */
-    .table-container {
-      max-height: 300px; /* Limite de 10 lignes visuellement */
-      overflow-y: auto; /* Barre de défilement verticale */
-    }
-
-    table thead th {
-        position: sticky; /* Rend l'en-tête fixe */
-        top: 0; /* Positionne l'en-tête en haut du conteneur */
-        z-index: 1; /* Assure que l'en-tête reste au-dessus du contenu du tableau */
-      }
-
-  </style>
-  <link rel="stylesheet" type="text/css" href="../css/style.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <meta charset="UTF-8">
+    <title>Intermédiaires</title>
+    <link rel="stylesheet" type="text/css" href="../css/style.css">
 </head>
-<body>
-  <h1>Intermédiaires</h1>
+<body class="bg-secondary">
 
-  <form id="Intermediaires_datas" method="POST">
-    <label for="intermediary">Intermédiaire :</label>
-    <input type="text" id="intermediary" name="intermediary" required>
-    <label for="text">Texte :</label>
-    <textarea id="text" name="text" required></textarea>
-    <input type="submit" value="Enregistrer">
-  </form>
+<h1 class="text-danger text-center">Intermédiaires</h1>
 
-  <?php
-		$dsn = "pgsql:host=localhost;dbname=bddcrmete;options='--client_encoding=UTF8'";
-		$user = "postgres";
-		$password = "root";
+<form id="Intermediaires_datas" method="POST" class="container">
+    <div class="mb-3">
+        <label for="intermediary" class="form-label text-light">Intermédiaire :</label>
+        <input type="text" id="intermediary" name="intermediary" class="form-control" required>
+    </div>
+    <div class="mb-3">
+        <label for="text" class="form-label text-light">Texte :</label>
+        <textarea id="text" name="text" class="form-control" required></textarea>
+    </div>
+    <button type="submit" class="btn btn-danger">Enregistrer</button>
+</form>
 
+<?php
     try {
-        $pdo = new PDO($dsn, $user, $password);
-        $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             if (isset($_POST['submit'])) {
                 $id = $_POST['id'];
@@ -221,7 +94,7 @@ try {
     ?>
 
 <div class="table-container">
-    <table>
+    <table class="table">
         <thead>
             <tr>
                 <th>ID</th>
@@ -241,7 +114,7 @@ try {
     </table>
 </div>
 
-    <button id="BoutonValidation" onclick="ValidationModif()">Valider les modifications</button>
+    <button id="BoutonValidation" onclick="ValidationModif()" class="btn btn-danger">Valider les modifications</button>
 
     <script>
         // Ajoutez un gestionnaire d'événement pour les cellules éditables
@@ -303,14 +176,12 @@ try {
 
     </script>
 
-
-
     <?php } catch (PDOException $e) {
         echo "Erreur de requête : " . $e->getMessage();
     } ?>
 
-  <p class="small-text" style="text-align: center;">
-    <a href="accueil.php">Retourner à l'accueil</a>
+  <p class="small-text text-center">
+    <a href="accueil.php" class="text-light">Retourner à l'accueil</a>
   </p>
 </body>
 </html>
