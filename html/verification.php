@@ -1,4 +1,5 @@
 <?php
+header('Content-Type: text/plain; charset=utf-8');
 session_start();
 
 $dsn = "pgsql:host=localhost;dbname=bddcrmete;options='--client_encoding=UTF8'";
@@ -39,3 +40,11 @@ try {
     echo "Erreur de requête : " . $e->getMessage();
 }
 ?>
+
+<!DOCTYPE html>
+
+<html lang="fr">
+
+    ceci est la page de vérification, normalement elle ne s'affiche pas
+
+</html>
