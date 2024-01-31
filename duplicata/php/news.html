@@ -1,13 +1,3 @@
-<?php
-session_start(); // Démarrer la session
-
-// Vérifier si l'utilisateur est connecté
-if (!isset($_SESSION['utilisateur'])) {
-    header("Location: ../login.php");
-    exit();
-}
-?>
-
 <!DOCTYPE html>
 <html lang="fr">
 <head>

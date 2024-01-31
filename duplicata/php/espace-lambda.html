@@ -1,20 +1,3 @@
-<?php
-error_reporting(E_ALL);
-ini_set('display_errors', 1);
-
-session_start(); // Démarrer la session
-
-// Vérifier si l'utilisateur est connecté
-if (!isset($_SESSION['utilisateur'])) {
-    header("Location: ../login.php");
-    exit();
-}
-
-$dsn = "pgsql:host=localhost;dbname=bddcrmete;options='--client_encoding=UTF8'";
-$user = "postgres";
-$password = "root";
-?>
-
 <!DOCTYPE html>
 <html lang="fr">
 <head>
