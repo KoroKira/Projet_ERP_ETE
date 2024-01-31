@@ -309,7 +309,7 @@ table thead th {
     function deleteFile(file) {
         if (confirm("Êtes-vous sûr de vouloir supprimer ce fichier ?")) {
             const xhr = new XMLHttpRequest();
-            xhr.open("POST", "supprimer_fichier.php", true);
+            xhr.open("POST", "supprimer_fichier.html", true);
             xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
             xhr.onreadystatechange = function () {
                 if (xhr.readyState === XMLHttpRequest.DONE) {
@@ -493,7 +493,7 @@ pg_close($conn);
         <td class="word-wrap"><?php echo convertirTaille(filesize($upload_directory . $file)); ?></td>
         <td class="word-wrap"><?php echo date('d/m/Y H:i:s', filemtime($upload_directory . $file)); ?></td>
         <td class="word-wrap"><?php echo pathinfo($file, PATHINFO_EXTENSION); ?></td>
-        <td><a href="telecharger.php?fichier=<?php echo urlencode($file); ?>">Télécharger</a></td>
+        <td><a href="telecharger.html?fichier=<?php echo urlencode($file); ?>">Télécharger</a></td>
         <td>
             <a href="#" class="delete-button" data-file="<?php echo urlencode($file); ?>">
                 <i class="fas fa-trash-alt"></i> 
@@ -506,7 +506,7 @@ pg_close($conn);
     </table>
 
 <p class="small-text">
-  <a href="accueil.php">Retour à la page d'accueil</a>
+  <a href="accueil.html">Retour à la page d'accueil</a>
 </p>
 
 </body>

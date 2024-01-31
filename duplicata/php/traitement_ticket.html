@@ -20,11 +20,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Utilisation de la fonction mail() pour envoyer l'e-mail
     if (mail($to, $subject, $body, $headers)) {
         // Redirection vers la page de ticket avec le statut de succès
-        header("Location: ticket.php?status=success");
+        header("Location: ticket.html?status=success");
         exit();
     } else {
         // Redirection vers la page de ticket avec le statut d'erreur
-        header("Location: ticket.php?status=error");
+        header("Location: ticket.html?status=error");
         exit();
     }
 }

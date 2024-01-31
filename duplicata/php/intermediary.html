@@ -85,7 +85,7 @@
                     formData.append('value', value);
                     formData.append('submit', 'true'); // Add the submit flag
 
-                    fetch('intermediary.php', {
+                    fetch('intermediary.html', {
                         method: 'POST',
                         body: formData
                     })
@@ -112,7 +112,7 @@
             });
 
             // Send the modified data to the server
-            fetch('fonctions.php/save_modifications_intermediary.php', {
+            fetch('fonctions.html/save_modifications_intermediary.html', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
@@ -134,7 +134,7 @@
     } ?>
 
   <p class="small-text text-center">
-    <a href="accueil.php" class="text-light">Retourner à l'accueil</a>
+    <a href="accueil.html" class="text-light">Retourner à l'accueil</a>
   </p>
 </body>
 </html>

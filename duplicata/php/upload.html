@@ -25,14 +25,14 @@ if(!isset($erreur)) //S'il n'y a pas d'erreur, on upload
      {
           echo 'Upload effectué avec succès !';
           sleep(3); // Attendre 3 secondes avant la redirection
-          header("Location: espace-lambda.php"); // Redirection vers la page "espace-lambda.php"
+          header("Location: espace-lambda.html"); // Redirection vers la page "espace-lambda.html"
           exit();
      }
      else //Sinon (la fonction renvoie FALSE).
      {
           echo 'Echec de l\'upload !';
           sleep(3); // Attendre 3 secondes avant la redirection
-          header("Location: espace-lambda.php"); // Redirection vers la page "espace-lambda.php"
+          header("Location: espace-lambda.html"); // Redirection vers la page "espace-lambda.html"
           exit();
      }
 }

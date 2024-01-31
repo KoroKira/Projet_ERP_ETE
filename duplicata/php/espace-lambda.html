@@ -24,7 +24,7 @@
 
 <h2 style="color: #c1272d; font-size: 24px; text-align: center; text-shadow: 2px 2px 4px #ffffff; margin-top: 20px;">Uploader un fichier (taille limite: 100 MO). Merci de faire attention au nom du fichier, qu'il soit clair et compréhensif du premier coup d'oeil</h2>
 
-<form method="POST" action="upload.php" enctype="multipart/form-data" style="background-color: #ffffff; border-radius: 5px; margin: 20px auto; padding: 20px; width: 800px; box-sizing: border-box;">
+<form method="POST" action="upload.html" enctype="multipart/form-data" style="background-color: #ffffff; border-radius: 5px; margin: 20px auto; padding: 20px; width: 800px; box-sizing: border-box;">
      <!-- On limite le fichier à 100MO -->
      <input type="hidden" name="MAX_FILE_SIZE" value="100000000">
      Fichier : <input type="file" name="avatar">
@@ -41,7 +41,7 @@ function Datainserer() {
   const formData = new FormData(form);
 
   // Send an AJAX request to the PHP script
-  fetch('fonctions.php/insert_data_lambda.php', {
+  fetch('fonctions.html/insert_data_lambda.html', {
     method: 'POST',
     body: formData
   })
@@ -100,7 +100,7 @@ pg_close($conn);
 ?>
 
 <p class="small-text">
-    <a href="accueil.php">Retour à la page d'accueil</a>
+    <a href="accueil.html">Retour à la page d'accueil</a>
 </p>
 
 </body>

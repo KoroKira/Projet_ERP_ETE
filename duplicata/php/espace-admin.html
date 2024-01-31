@@ -12,8 +12,8 @@
 <h1 class="text-center mt-5">Espace administrateur</h1>
 
 <div class="d-flex justify-content-center mt-3">
-    <button onclick="location.href='modif_admin.php'" class="btn btn-primary me-2">Modifier les données dans le CRM</button>
-    <button onclick="location.href='gestion_textes_admin.php'" class="btn btn-primary">Accéder aux textes des utilisateurs et aux fichiers déposés - admin</button>
+    <button onclick="location.href='modif_admin.html'" class="btn btn-primary me-2">Modifier les données dans le CRM</button>
+    <button onclick="location.href='gestion_textes_admin.html'" class="btn btn-primary">Accéder aux textes des utilisateurs et aux fichiers déposés - admin</button>
 </div>
 
 <h2 class="text-center mt-3">Ajouter un compte</h2>
@@ -80,7 +80,7 @@
     formData.append('acces', acces);
     formData.append('ajouterCompte', 'true'); // Ajoutez le drapeau ajouterCompte
 
-    fetch('espace-admin.php', { // Pointez vers le fichier espace-admin.php
+    fetch('espace-admin.html', { // Pointez vers le fichier espace-admin.html
         method: 'POST',
         body: formData
     })
@@ -108,7 +108,7 @@
                 formData.append('value', value);
                 formData.append('submit', 'true'); // Ajoutez le drapeau submit
 
-                fetch('espace-admin.php', {
+                fetch('espace-admin.html', {
                     method: 'POST',
                     body: formData
                 })
@@ -135,7 +135,7 @@
         });
 
         // Envoyer les données modifiées au serveur
-        fetch('fonctions.php/save_modif_connexion.php', {
+        fetch('fonctions.html/save_modif_connexion.html', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
@@ -158,7 +158,7 @@
             formData.append('id', id);
             formData.append('delete', 'true'); // Ajoutez le drapeau delete
 
-            fetch('espace-admin.php', {
+            fetch('espace-admin.html', {
                 method: 'POST',
                 body: formData
             })
@@ -174,7 +174,7 @@
 </script>
 
 <p class="small-text mt-3">
-  <a href="accueil.php">Retour à la page d'accueil</a>
+  <a href="accueil.html">Retour à la page d'accueil</a>
 </p>
 
 </body>
