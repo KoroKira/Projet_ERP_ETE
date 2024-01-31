@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="fr">
 
 <style>
 body {
@@ -301,7 +301,37 @@ table thead th {
 
 <head>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
-  <meta charset="UTF-8">
+  <head>
+    <head>
+      <meta charset="UTF-8">
+      <title>Espace Administrateur</title>
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"> <!-- Add Font Awesome CSS -->
+      ...
+    </head>
+    <title>Espace Administrateur</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"> <!-- Add Font Awesome CSS -->
+
+    <script>
+    function deleteFile(file) {
+      if (confirm("Êtes-vous sûr de vouloir supprimer ce fichier ?")) {
+        const xhr = new XMLHttpRequest();
+        xhr.open("POST", "supprimer_fichier.html", true);
+        xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+        xhr.onreadystatechange = function () {
+          if (xhr.readyState === XMLHttpRequest.DONE) {
+            // Reload the page after the deletion
+            window.location.reload();
+          }
+        };
+        xhr.send("fichier=" + encodeURIComponent(file));
+      }
+    }
+
+    const deleteButtons = document.querySelectorAll(".delete-button");
+    deleteButtons.forEach(button => {
+      button.addEventListener("click", function (event) {
+        event.preventDefault();
+        const file = this.dataset.file;
   <title>Espace Administrateur</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"> <!-- Add Font Awesome CSS -->
 
